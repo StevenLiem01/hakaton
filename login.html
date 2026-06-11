@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FreshPOS — Login</title>
+  <title>FreshFlow — Login</title>
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
     :root {
       --brand-primary: #0f7aff;
-      --brand-dark:    #0a1628;
-      --brand-mid:     #0d2247;
-      --brand-accent:  #00d4aa;
-      --brand-soft:    #e8f1ff;
-      --text-main:     #0a1628;
-      --text-muted:    #6b7c93;
-      --radius-card:   20px;
-      --shadow-card:   0 24px 64px rgba(15,122,255,.13), 0 4px 16px rgba(10,22,40,.08);
+      --brand-dark: #0a1628;
+      --brand-mid: #0d2247;
+      --brand-accent: #00d4aa;
+      --brand-soft: #e8f1ff;
+      --text-main: #0a1628;
+      --text-muted: #6b7c93;
+      --radius-card: 20px;
+      --shadow-card: 0 24px 64px rgba(15, 122, 255, .13), 0 4px 16px rgba(10, 22, 40, .08);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -55,25 +64,31 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(15,122,255,.35) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(0,212,170,.20) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 60% at 80% 20%, rgba(15, 122, 255, .35) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(0, 212, 170, .20) 0%, transparent 60%);
     }
 
     .hero-dots {
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px);
       background-size: 28px 28px;
     }
 
-    .hero-content { position: relative; z-index: 1; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
 
     .brand-badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
       backdrop-filter: blur(12px);
       padding: 8px 16px 8px 10px;
       border-radius: 50px;
@@ -81,14 +96,23 @@
     }
 
     .brand-badge .icon-wrap {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       background: var(--brand-primary);
       border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
     }
 
-    .brand-badge span { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.85); letter-spacing: .5px; }
+    .brand-badge span {
+      font-size: .8rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .85);
+      letter-spacing: .5px;
+    }
 
     .hero-title {
       font-size: clamp(2rem, 3.5vw, 2.9rem);
@@ -98,37 +122,55 @@
       margin-bottom: 18px;
     }
 
-    .hero-title .accent { color: var(--brand-accent); }
+    .hero-title .accent {
+      color: var(--brand-accent);
+    }
 
     .hero-sub {
       font-size: .975rem;
-      color: rgba(255,255,255,.55);
+      color: rgba(255, 255, 255, .55);
       line-height: 1.7;
       max-width: 380px;
       margin-bottom: 48px;
     }
 
-    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .feature-list li {
-      display: flex; align-items: center; gap: 12px;
-      font-size: .875rem; color: rgba(255,255,255,.7); font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .875rem;
+      color: rgba(255, 255, 255, .7);
+      font-weight: 500;
     }
 
     .feature-list .dot {
-      width: 26px; height: 26px; flex-shrink: 0;
-      background: rgba(0,212,170,.15);
-      border: 1px solid rgba(0,212,170,.3);
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      background: rgba(0, 212, 170, .15);
+      border: 1px solid rgba(0, 212, 170, .3);
       border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; color: var(--brand-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--brand-accent);
     }
 
     .hero-watermark {
       position: absolute;
-      bottom: -40px; right: -40px;
-      width: 260px; height: 260px;
-      border: 40px solid rgba(255,255,255,.03);
+      bottom: -40px;
+      right: -40px;
+      width: 260px;
+      height: 260px;
+      border: 40px solid rgba(255, 255, 255, .03);
       border-radius: 50%;
       z-index: 0;
     }
@@ -137,7 +179,7 @@
       content: '';
       position: absolute;
       inset: 30px;
-      border: 30px solid rgba(15,122,255,.08);
+      border: 30px solid rgba(15, 122, 255, .08);
       border-radius: 50%;
     }
 
@@ -183,7 +225,9 @@
     }
 
     /* Field styles */
-    .field-group { margin-bottom: 20px; }
+    .field-group {
+      margin-bottom: 20px;
+    }
 
     .field-group label {
       display: block;
@@ -226,10 +270,12 @@
     .input-shell input:focus {
       border-color: var(--brand-primary);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(15,122,255,.1);
+      box-shadow: 0 0 0 4px rgba(15, 122, 255, .1);
     }
 
-    .input-shell input:focus + .focus-ring { opacity: 1; }
+    .input-shell input:focus+.focus-ring {
+      opacity: 1;
+    }
 
     .input-shell .toggle-pw {
       position: absolute;
@@ -244,7 +290,9 @@
       transition: color .2s;
     }
 
-    .input-shell .toggle-pw:hover { color: var(--brand-primary); }
+    .input-shell .toggle-pw:hover {
+      color: var(--brand-primary);
+    }
 
     /* Login button */
     .btn-login {
@@ -264,7 +312,7 @@
       justify-content: center;
       gap: 8px;
       transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 8px 24px rgba(15,122,255,.28);
+      box-shadow: 0 8px 24px rgba(15, 122, 255, .28);
       position: relative;
       overflow: hidden;
     }
@@ -273,16 +321,18 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,.12), transparent 60%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 60%);
     }
 
     .btn-login:hover {
       background: #0063d8;
-      box-shadow: 0 12px 32px rgba(15,122,255,.38);
+      box-shadow: 0 12px 32px rgba(15, 122, 255, .38);
       transform: translateY(-1px);
     }
 
-    .btn-login:active { transform: translateY(0); }
+    .btn-login:active {
+      transform: translateY(0);
+    }
 
     .btn-login:disabled {
       background: #a0b8d8;
@@ -291,7 +341,11 @@
       transform: none;
     }
 
-    .spinner-border-sm { width: 18px; height: 18px; border-width: 2.5px; }
+    .spinner-border-sm {
+      width: 18px;
+      height: 18px;
+      border-width: 2.5px;
+    }
 
     .login-footer {
       margin-top: 28px;
@@ -302,28 +356,54 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      body { flex-direction: column; overflow: auto; }
+      body {
+        flex-direction: column;
+        overflow: auto;
+      }
+
       .hero-panel {
         flex: none;
         padding: 36px 32px;
         min-height: auto;
       }
-      .hero-title { font-size: 1.6rem; }
-      .hero-sub, .feature-list { display: none; }
-      .form-panel { padding: 28px 20px 48px; }
-      .login-card { padding: 36px 28px; }
+
+      .hero-title {
+        font-size: 1.6rem;
+      }
+
+      .hero-sub,
+      .feature-list {
+        display: none;
+      }
+
+      .form-panel {
+        padding: 28px 20px 48px;
+      }
+
+      .login-card {
+        padding: 36px 28px;
+      }
     }
 
     /* Entrance animation */
     .login-card {
-      animation: cardIn .5s cubic-bezier(.22,1,.36,1) both;
+      animation: cardIn .5s cubic-bezier(.22, 1, .36, 1) both;
     }
+
     @keyframes cardIn {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- LEFT: Hero Panel -->
@@ -334,7 +414,7 @@
     <div class="hero-content">
       <div class="brand-badge">
         <div class="icon-wrap"><i class="bi bi-water"></i></div>
-        <span>FreshPOS Laundry</span>
+        <span>FreshFlow Laundry</span>
       </div>
 
       <h2 class="hero-title">
@@ -344,7 +424,8 @@
       </h2>
 
       <p class="hero-sub">
-        Sistem kasir modern dengan konfirmasi struk otomatis via WhatsApp. Tidak ada lagi nota hilang, tidak ada lagi pelanggan kecewa.
+        Sistem kasir modern dengan konfirmasi struk otomatis via WhatsApp. Tidak ada lagi nota hilang, tidak ada lagi
+        pelanggan kecewa.
       </p>
 
       <ul class="feature-list">
@@ -375,12 +456,7 @@
         <label for="username">Username</label>
         <div class="input-shell">
           <i class="bi bi-person prefix-icon"></i>
-          <input
-            type="text"
-            id="username"
-            placeholder="Masukkan username"
-            autocomplete="username"
-          />
+          <input type="text" id="username" placeholder="Masukkan username" autocomplete="username" />
         </div>
       </div>
 
@@ -388,12 +464,7 @@
         <label for="password">Password</label>
         <div class="input-shell">
           <i class="bi bi-lock prefix-icon"></i>
-          <input
-            type="password"
-            id="password"
-            placeholder="Masukkan password"
-            autocomplete="current-password"
-          />
+          <input type="password" id="password" placeholder="Masukkan password" autocomplete="current-password" />
           <button class="toggle-pw" id="togglePw" type="button" tabindex="-1">
             <i class="bi bi-eye-slash" id="pwIcon"></i>
           </button>
@@ -406,7 +477,7 @@
       </button>
 
       <p class="login-footer">
-        &copy; 2025 FreshPOS &mdash; Laundry Point of Sale System
+        &copy; 2025 FreshFlow &mdash; Laundry Point of Sale System
       </p>
     </div>
   </div>
@@ -414,7 +485,7 @@
   <script>
     // ── Toggle password visibility ──────────────────────────
     document.getElementById('togglePw').addEventListener('click', () => {
-      const pw   = document.getElementById('password');
+      const pw = document.getElementById('password');
       const icon = document.getElementById('pwIcon');
       if (pw.type === 'password') {
         pw.type = 'text';
@@ -431,7 +502,7 @@
     }
 
     // ── Login handler ───────────────────────────────────────
-    const btnLogin     = document.getElementById('btnLogin');
+    const btnLogin = document.getElementById('btnLogin');
     const btnLoginText = document.getElementById('btnLoginText');
 
     async function handleLogin() {
@@ -457,7 +528,7 @@
         <span>Memproses...</span>`;
 
       try {
-        const res  = await fetch('/api/login', {
+        const res = await fetch('/api/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username, password }),
@@ -501,4 +572,5 @@
     });
   </script>
 </body>
+
 </html>
