@@ -1,0 +1,109 @@
+[2/6/2026, 12.32.22] ERROR BUAT PESANAN:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:79:180)
+    at #evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\index.js:91:9
+    at i (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:108:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:108:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4iXXH4/yS/l/en_US-j/l_CevX9oAD6.js:713:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4iVGX4/ys/l/en_US-j/eDT5aSy4ysSOxfvxICkBwBI3JXY_idVZHjSXcnfsHa03Qm7EJJk5P5rD6BcIZNHoPV9dCOD9kXntpGcKSsrS0FI5c7VnqbeLpmXfe2AA8T2dE7Q4JpQ9BgaD31gtkZnxKQQ_Hq3M-cho_8VwEEHxyTqf2cKZITwWSULC1Ye_SWdbl7-qACz4Nu6So0q.js:1229:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:78:179)
+-----------------------------------
+[2/6/2026, 12.33.04] ERROR BUAT PESANAN:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:79:180)
+    at #evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\index.js:91:9
+    at i (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:108:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:108:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4iXXH4/yS/l/en_US-j/l_CevX9oAD6.js:713:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4iVGX4/ys/l/en_US-j/eDT5aSy4ysSOxfvxICkBwBI3JXY_idVZHjSXcnfsHa03Qm7EJJk5P5rD6BcIZNHoPV9dCOD9kXntpGcKSsrS0FI5c7VnqbeLpmXfe2AA8T2dE7Q4JpQ9BgaD31gtkZnxKQQ_Hq3M-cho_8VwEEHxyTqf2cKZITwWSULC1Ye_SWdbl7-qACz4Nu6So0q.js:1229:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/yK/r/GdpyBJ3A7sG.js:78:179)
+-----------------------------------
+[2/6/2026, 12.43.22] ERROR UPDATE STATUS:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Downloads\Laundry App\Laundry Backend\index.js:155:9
+-----------------------------------
+[11/6/2026, 12.34.25] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
+[11/6/2026, 12.34.32] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
+[11/6/2026, 12.34.49] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
+[11/6/2026, 12.34.52] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
+[11/6/2026, 12.37.37] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
+[11/6/2026, 12.37.53] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
+-----------------------------------
