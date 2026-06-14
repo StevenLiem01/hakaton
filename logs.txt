@@ -107,6 +107,7 @@ TypeError: Cannot read properties of undefined (reading 'getChat')
     at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
     at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
 -----------------------------------
+<<<<<<< HEAD
 [11/6/2026, 13.38.45] ERROR AMBIL DASHBOARD:
 Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
     at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
@@ -1085,4 +1086,79 @@ Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
     at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:94:15)
     at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:342:19
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+=======
+[11/6/2026, 14.10.21] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (D:\Campus\MES\hakaton\node_modules\retry-request\index.js:159:28)
+    at retryRequest (D:\Campus\MES\hakaton\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at D:\Campus\MES\hakaton\index.js:335:14
+    at Layer.handleRequest (D:\Campus\MES\hakaton\node_modules\router\lib\layer.js:152:17)
+    at next (D:\Campus\MES\hakaton\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\Campus\MES\hakaton\node_modules\router\lib\route.js:117:3)
+    at handle (D:\Campus\MES\hakaton\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.12.03] ERROR LOGIN:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (D:\Campus\MES\hakaton\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (D:\Campus\MES\hakaton\node_modules\retry-request\index.js:159:28)
+    at retryRequest (D:\Campus\MES\hakaton\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (D:\Campus\MES\hakaton\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at D:\Campus\MES\hakaton\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (D:\Campus\MES\hakaton\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at D:\Campus\MES\hakaton\index.js:180:94
+    at Layer.handleRequest (D:\Campus\MES\hakaton\node_modules\router\lib\layer.js:152:17)
+    at next (D:\Campus\MES\hakaton\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\Campus\MES\hakaton\node_modules\router\lib\route.js:117:3)
+    at handle (D:\Campus\MES\hakaton\node_modules\router\index.js:435:11)
+>>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
 -----------------------------------
