@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Firebase private key — JANGAN PERNAH di-push!
+firebase-key.json
+
+# WhatsApp session data
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Generated receipts
+receipts/
+
+# Logs
+logs.txt
+status.txt
+*.log
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db

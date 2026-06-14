@@ -9,6 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
 
   <style>
     :root {
@@ -103,6 +106,38 @@
       margin-left: 14px; transition: all .2s;
     }
     .btn-logout:hover { background: rgba(255,80,80,.15); border-color: rgba(255,80,80,.3); color: #ff6b6b; }
+
+    .wa-auth-card {
+      background: #fff7e6;
+      border: 1px solid #ffd8a8;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 18px;
+      color: #7c4d00;
+    }
+    .wa-auth-card h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      color: #9a5800;
+    }
+    .wa-auth-card p {
+      margin: 0 0 8px;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    .wa-auth-status {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,160,0,.16);
+      color: #9a5800;
+      font-weight: 700;
+      font-size: .82rem;
+    }
+    .wa-auth-status.ready { background: rgba(0,214,170,.16); color: #0f766e; }
+    .wa-auth-status.pending { background: rgba(255,77,79,.12); color: #b91c1c; }
 
     /* Mobile menu toggle */
     .btn-mob-menu {
@@ -528,6 +563,78 @@
     @media (max-width: 480px) {
       .stats-row { grid-template-columns: 1fr; }
     }
+
+    /* QR Scanner Modal Styles */
+    .qr-modal {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);
+      z-index: 9999; align-items: center; justify-content: center;
+    }
+    .qr-modal.active { display: flex; }
+    .qr-modal-content {
+      background: var(--bg-card); border-radius: var(--radius-card);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px; width: 90%; max-height: 90vh;
+      overflow: auto; position: relative;
+    }
+    .qr-modal-header {
+      padding: 24px; border-bottom: 1px solid var(--border-color);
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(135deg, #fafbff, #fff);
+    }
+    .qr-modal-header h2 { margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
+    .qr-modal-close {
+      background: none; border: none; font-size: 1.5rem; color: var(--text-muted);
+      cursor: pointer; transition: all .2s;
+    }
+    .qr-modal-close:hover { color: var(--text-main); transform: rotate(90deg); }
+    .qr-modal-body { padding: 24px; }
+
+    .qr-scanner-wrapper {
+      position: relative; background: #000; border-radius: 15px;
+      overflow: hidden; margin-bottom: 20px; aspect-ratio: 1;
+    }
+    #qrVideo { width: 100%; height: 100%; display: block; object-fit: cover; }
+    #qrCanvas { display: none; }
+    .qr-frame {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%; height: 70%;
+      border: 3px solid #00ff00;
+      border-radius: 15px;
+      box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
+    }
+    .qr-status {
+      text-align: center; padding: 15px; background: #f5f5f5;
+      border-radius: 10px; margin-bottom: 20px; min-height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 500; font-size: 0.9rem;
+    }
+    .qr-status.scanning { background: #e3f2fd; color: #1976d2; }
+    .qr-status.success { background: #e8f5e9; color: #388e3c; }
+    .qr-status.error { background: #ffebee; color: #c62828; }
+
+    .qr-result-box {
+      background: #f9f9f9; border: 2px solid #ddd; border-radius: 10px;
+      padding: 15px; margin-bottom: 20px; word-break: break-all;
+      max-height: 150px; overflow-y: auto; display: none;
+    }
+    .qr-result-box.active { display: block; }
+    .qr-result-label { font-size: 0.8rem; color: #999; margin-bottom: 8px; font-weight: 700; }
+    .qr-result-text { font-size: 0.9rem; color: #333; font-family: 'Courier New', monospace; }
+
+    .qr-button-group { display: flex; gap: 10px; margin-bottom: 20px; }
+    .qr-button-group button { flex: 1; padding: 10px 16px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .qr-btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+    .qr-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3); }
+    .qr-btn-secondary { background: #f0f0f0; color: #333; }
+    .qr-btn-secondary:hover { background: #e0e0e0; }
+
+    @media (max-width: 600px) {
+      .qr-modal-content { max-width: 95%; }
+      .qr-modal-body { padding: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -675,6 +782,11 @@
                     <div><div class="qa-title">Riwayat</div><div class="qa-sub">Manajemen pesanan</div></div>
                     <i class="bi bi-arrow-right qa-arrow"></i>
                   </button>
+                  <button class="qa-card" onclick="openQRScanner()" style="border-radius:12px;padding:14px 16px;">
+                    <div class="qa-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6"><i class="bi bi-qr-code"></i></div>
+                    <div><div class="qa-title">Scan QR</div><div class="qa-sub">Pindai kode QR</div></div>
+                    <i class="bi bi-arrow-right qa-arrow"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -815,6 +927,16 @@
                 <button type="button" class="btn-reset" id="btnReset">
                   <i class="bi bi-arrow-counterclockwise"></i> Reset Form
                 </button>
+
+                <div class="wa-auth-card" id="waAuthCard" style="display:none;">
+                  <h4>Status WhatsApp</h4>
+                  <div id="waStatusBadge" class="wa-auth-status">Memuat status...</div>
+                  <p id="waStatusMessage">Memeriksa koneksi WhatsApp...</p>
+                  <div id="waQrContainer" style="margin-top:12px;"></div>
+                  <button type="button" class="btn-reset" id="btnResetWA" style="margin-top: 14px; width: 100%;">
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset WhatsApp Session
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -1047,8 +1169,9 @@
       let totalTerhitung = 0;
       if (layanan !== '—' && berat > 0) {
           const subtotal = berat * (hargaLayananData[layanan] || 0);
-          totalAkhir = subtotal - diskon;
+          let totalAkhir = subtotal - diskon;
           if (totalAkhir < 0) totalAkhir = 0; // Cegah angka minus
+          totalTerhitung = totalAkhir;
           document.getElementById('totalHarga').value = totalAkhir;
       } else {
           document.getElementById('totalHarga').value = '';
@@ -1061,6 +1184,24 @@
       document.getElementById('ppDiskon').textContent  = diskon > 0 ? '- Rp ' + diskon.toLocaleString('id-ID') : 'Rp 0';
       document.getElementById('ppCatatan').textContent = catatan;
       document.getElementById('ppTotal').textContent   = totalTerhitung > 0 ? 'Rp ' + totalTerhitung.toLocaleString('id-ID') : 'Rp 0';
+    }
+
+    function setSubmitLoading(isLoading) {
+      const button = document.getElementById('btnSubmit');
+      const icon = document.getElementById('submitIcon');
+      const text = document.getElementById('btnSubmitText');
+      if (!button) return;
+
+      button.disabled = isLoading;
+      if (isLoading) {
+        button.classList.add('loading');
+        if (icon) icon.className = 'spinner-border spinner-border-sm';
+        if (text) text.textContent = 'Mengirim...';
+      } else {
+        button.classList.remove('loading');
+        if (icon) icon.className = 'bi bi-send-fill';
+        if (text) text.textContent = 'Buat Pesanan & Kirim Struk WA';
+      }
     }
 
     ['nama', 'noWa', 'berat', 'diskon', 'catatan', 'totalHarga'].forEach(id => {
@@ -1076,11 +1217,94 @@
       updatePreview();
     });
 
-    function setSubmitLoading(loading) {
-      const btn = document.getElementById('btnSubmit');
-      btn.disabled = loading;
-      btn.innerHTML = loading ? `<span class="spinner-border spinner-border-sm"></span> Mengirim Struk WA...` : `<i class="bi bi-send-fill"></i> Buat Pesanan &amp; Kirim Struk WA`;
+    async function resetWhatsAppSession() {
+      const button = document.getElementById('btnResetWA');
+      button.disabled = true;
+      const originalText = button.innerHTML;
+      button.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Resetting...`;
+
+      try {
+        const res = await fetch('/api/reset-wa-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const json = await res.json();
+
+        if (json.success) {
+          document.getElementById('waStatusMessage').textContent = 'Session WhatsApp berhasil di-reset. Scan QR baru yang muncul di bawah.';
+          refreshWhatsAppStatus();
+        } else {
+          document.getElementById('waStatusMessage').textContent = json.message || 'Gagal mereset session WhatsApp.';
+        }
+      } catch (err) {
+        console.error('Gagal reset session WhatsApp:', err);
+        document.getElementById('waStatusMessage').textContent = 'Terjadi kesalahan saat mereset session WhatsApp. Coba lagi.';
+      } finally {
+        button.disabled = false;
+        button.innerHTML = originalText;
+      }
     }
+
+    document.getElementById('btnResetWA').addEventListener('click', resetWhatsAppSession);
+
+    async function refreshWhatsAppStatus() {
+      try {
+        const res = await fetch('/api/health', { headers: { 'Authorization': `Bearer ${token}` }});
+        const json = await res.json();
+        const card = document.getElementById('waAuthCard');
+        const badge = document.getElementById('waStatusBadge');
+        const message = document.getElementById('waStatusMessage');
+        const qrContainer = document.getElementById('waQrContainer');
+
+        if (!json.success) {
+          card.style.display = 'block';
+          badge.textContent = 'Koneksi WA Tidak Stabil';
+          badge.className = 'wa-auth-status pending';
+          message.textContent = json.message || 'Tidak dapat mengambil status WhatsApp.';
+          qrContainer.innerHTML = '';
+          document.getElementById('btnSubmit').disabled = true;
+          return;
+        }
+
+        card.style.display = 'block';
+        const wa = json.whatsapp || {};
+        const isReady = wa.ready === true;
+        badge.textContent = isReady ? 'WhatsApp Siap' : 'WhatsApp Belum Siap';
+        badge.className = `wa-auth-status ${isReady ? 'ready' : 'pending'}`;
+        if (isReady) {
+          message.textContent = 'WhatsApp terhubung. Struk dan QR akan dikirim langsung ke pelanggan setelah submit.';
+        } else if (wa.state === 'AUTH_FAILURE') {
+          message.textContent = 'Scan ulang QR dari WhatsApp > Linked Devices > Link a Device. Jika masih gagal, tekan Reset WhatsApp Session dan coba lagi.';
+        } else if (wa.state === 'DISCONNECTED') {
+          message.textContent = 'WhatsApp terputus. Tekan Reset WhatsApp Session, lalu scan QR kembali di WhatsApp Linked Devices.';
+        } else {
+          message.textContent = 'Tunggu koneksi WhatsApp. Scan QR ini menggunakan aplikasi WhatsApp di ponsel (Linked Devices -> Link a Device). Jangan gunakan scanner kamera biasa.';
+        }
+
+        if (wa.qr) {
+          qrContainer.innerHTML = '';
+          const canvas = document.createElement('canvas');
+          qrContainer.appendChild(canvas);
+          QRCode.toCanvas(canvas, wa.qr, { width: 240, margin: 2 }, (error) => {
+            if (error) {
+              qrContainer.innerHTML = '<p>Gagal menampilkan QR. Refresh halaman untuk mencoba lagi.</p>';
+            }
+          });
+        } else {
+          qrContainer.innerHTML = '';
+        }
+
+        document.getElementById('btnSubmit').disabled = !isReady;
+      } catch (err) {
+        console.error('Gagal memuat status WhatsApp:', err);
+      }
+    }
+
+    refreshWhatsAppStatus();
+    setInterval(refreshWhatsAppStatus, 5000);
 
     document.getElementById('orderForm').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1248,6 +1472,8 @@
       try {
         const res = await fetch('/api/dashboard', { headers: { 'Authorization': `Bearer ${token}` }});
         const json = await res.json();
+        console.log('Dashboard response:', json);
+        
         if (json.success) {
           document.getElementById('dashTotalPesanan').textContent = json.data.totalPesanan;
           document.getElementById('dashTotalPendapatan').textContent = 'Rp ' + json.data.totalPendapatan.toLocaleString('id-ID');
@@ -1269,8 +1495,13 @@
                 </div>
             </div>`;
           }).join('');
+        } else {
+          feed.innerHTML = `<div style="padding: 20px; text-align: center; color: #ef4444;">${json.message}</div>`;
         }
-      } catch (err) {}
+      } catch (err) {
+        console.error('Error loading dashboard:', err);
+        feed.innerHTML = `<div style="padding: 20px; text-align: center; color: #ef4444;">Error: ${err.message}</div>`;
+      }
     }
 
     // -- RIWAYAT FILTERING --
@@ -1343,7 +1574,14 @@
       try {
         const res  = await fetch('/api/riwayat', { headers: { 'Authorization': `Bearer ${token}` }});
         const json = await res.json();
-        if (!res.ok || !json.success) throw new Error(json.message);
+        
+        console.log('Response status:', res.status);
+        console.log('Response data:', json);
+        
+        if (!res.ok || !json.success) {
+          const errorMsg = json.message || `HTTP ${res.status}: ${res.statusText}`;
+          throw new Error(errorMsg);
+        }
 
         allOrdersData = Array.isArray(json.data) ? json.data : [];
 
@@ -1359,8 +1597,9 @@
 
         renderTabelRiwayat();
       } catch (err) {
-        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#ef4444;"><i class="bi bi-exclamation-triangle"></i> Gagal memuat data.</td></tr>`;
-        countLabel.textContent = 'Gagal memuat data';
+        console.error('Error loading riwayat:', err);
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:40px;color:#ef4444;"><i class="bi bi-exclamation-triangle"></i> Gagal memuat data.<br><small style="font-size:.8rem;margin-top:10px;display:block;">${err.message}</small></td></tr>`;
+        countLabel.textContent = 'Gagal memuat data: ' + err.message;
       }
     }
 
@@ -1459,6 +1698,200 @@
 
     // Panggil saat halaman pertama kali dibuka
     loadPengaturan();
+
+    // ═══════════════════════════════════════
+    // QR SCANNER FUNCTIONALITY
+    // ═══════════════════════════════════════
+    let qrScanning = false;
+    let qrAnimationId = null;
+    let qrCanvasContext = null;
+
+    function getQRElements() {
+      return {
+        video: document.getElementById('qrVideo'),
+        canvas: document.getElementById('qrCanvas'),
+        modal: document.getElementById('qrScannerModal'),
+        status: document.getElementById('qrStatus')
+      };
+    }
+
+    // --- DUA FUNGSI INI YANG TADI TIDAK SENGAJA HILANG ---
+    function openQRScanner() {
+      const elements = getQRElements();
+      if (elements.modal) {
+        elements.modal.classList.add('active');
+        initQRCamera();
+      }
+    }
+
+    function closeQRScanner() {
+      const elements = getQRElements();
+      if (elements.modal) elements.modal.classList.remove('active');
+      qrScanning = false;
+      if (qrAnimationId) cancelAnimationFrame(qrAnimationId);
+      if (elements.video && elements.video.srcObject) {
+        elements.video.srcObject.getTracks().forEach(track => track.stop());
+      }
+    }
+    // -----------------------------------------------------
+
+    async function initQRCamera() {
+      const elements = getQRElements();
+      try {
+        // PERBAIKAN: Menggunakan fallback. Jika kamera belakang (environment) tidak ada, otomatis pakai webcam laptop.
+        let stream;
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        } catch(err) {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        }
+        
+        elements.video.srcObject = stream;
+        
+        // Memaksa video untuk play tanpa suara agar tidak diblokir browser
+        elements.video.setAttribute("playsinline", true);
+        elements.video.play();
+
+        updateQRStatus('scanning', '🔍 Memindai QR Code otomatis...');
+        qrScanning = true;
+        
+        // Mulai scanning
+        requestAnimationFrame(scanQRCode);
+
+      } catch (error) {
+        updateQRStatus('error', `❌ Akses Kamera Ditolak: ${error.message}`);
+      }
+    }
+
+    function scanQRCode() {
+      if (!qrScanning) return;
+      const elements = getQRElements();
+
+      // PERBAIKAN: Pastikan lensa kamera sudah benar-benar menangkap cahaya/gambar (HAVE_ENOUGH_DATA)
+      if (elements.video.readyState === elements.video.HAVE_ENOUGH_DATA) {
+        
+        // Sesuaikan ukuran kanvas secara dinamis
+        elements.canvas.height = elements.video.videoHeight;
+        elements.canvas.width = elements.video.videoWidth;
+        
+        qrCanvasContext = elements.canvas.getContext("2d", { willReadFrequently: true });
+        qrCanvasContext.drawImage(elements.video, 0, 0, elements.canvas.width, elements.canvas.height);
+        
+        const imageData = qrCanvasContext.getImageData(0, 0, elements.canvas.width, elements.canvas.height);
+        
+        // Proses pembacaan QR Code
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "attemptBoth",
+        });
+
+        // Jika berhasil terbaca
+        if (code && code.data !== "") {
+          closeQRScanner();
+          prosesHasilQR(code.data);
+          return; // Hentikan fungsi agar tidak memindai berulang-ulang
+        }
+      }
+      
+      // Jika belum terbaca, putar terus kameranya
+      qrAnimationId = requestAnimationFrame(scanQRCode);
+    }
+
+    function updateQRStatus(type, message) {
+      const elements = getQRElements();
+      if (elements.status) {
+        elements.status.className = `qr-status ${type}`;
+        elements.status.textContent = message;
+      }
+    }
+
+    // ═══════════════════════════════════════
+    // PROSES PENCARIAN DATA DARI HASIL SCAN
+    // ═══════════════════════════════════════
+    async function prosesHasilQR(idPesanan) {
+      // Bersihkan spasi kosong yang mungkin terbawa dari QR
+      const cleanId = String(idPesanan).trim();
+      
+      Swal.fire({ title: 'Mencari Pesanan...', text: `Mencocokkan ID: ${cleanId}`, didOpen: () => Swal.showLoading() });
+
+      try {
+        const res = await fetch(`/api/pesanan/${cleanId}`, { headers: { 'Authorization': `Bearer ${token}` } });
+        const json = await res.json();
+
+        if (!json.success) {
+          return Swal.fire('Tidak Ditemukan', `Receipt ID ${cleanId} tidak ada dalam pesanan/order.`, 'error');
+        }
+
+        // --- SKEMA ELEGAN AUTO-FIND DIMULAI ---
+        Swal.close(); // Tutup popup loading segera
+
+        // 1. Pindah ke menu riwayat secara visual
+        navigateTo('view-riwayat');
+
+        // 2. Beri jeda 100ms agar halaman riwayat selesai dimuat oleh browser
+        setTimeout(() => {
+            const searchBox = document.getElementById('inputCariRiwayat');
+            const statusFilter = document.getElementById('filterStatusRiwayat');
+            
+            // Isi kotak pencarian dengan ID hasil scan
+            if(searchBox) searchBox.value = cleanId;
+            if(statusFilter) statusFilter.value = 'all';
+
+            // Panggil fungsi render ulang tabel riwayat
+            if (typeof loadRiwayat === "function") {
+                loadRiwayat();
+            }
+
+            // 3. Tampilkan notifikasi "Toast" kecil di pojok (tidak mengganggu layar tengah)
+            Swal.fire({
+              icon: 'success',
+              title: 'Pesanan Ditemukan!',
+              text: `Menampilkan ID: ${cleanId}`,
+              toast: true,
+              position: 'top-end',
+              timer: 3000,
+              showConfirmButton: false
+            });
+        }, 100);
+
+      } catch (err) {
+        Swal.fire('Error Sistem', 'Gagal memproses data QR: ' + err.message, 'error');
+      }
+    }
+
+    // Close modal when clicking outside (after DOM is ready)
+    setTimeout(() => {
+      const elements = getQRElements();
+      if (elements.modal) {
+        elements.modal.addEventListener('click', (e) => {
+          if (e.target.id === 'qrScannerModal') closeQRScanner();
+        });
+      }
+    }, 100);
   </script>
+
+  <!-- QR Scanner Modal -->
+  <div id="qrScannerModal" class="qr-modal">
+    <div class="qr-modal-content">
+      <div class="qr-modal-header">
+        <h2><i class="bi bi-qr-code"></i> Scan QR Code</h2>
+        <button class="qr-modal-close" onclick="closeQRScanner()"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="qr-modal-body">
+        <div class="qr-status scanning" id="qrStatus">
+          ⏳ Menginisialisasi webcam...
+        </div>
+
+        <div class="qr-scanner-wrapper">
+          <video id="qrVideo" playsinline></video>
+          <canvas id="qrCanvas"></canvas>
+          <div class="qr-frame"></div>
+        </div>
+
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-muted); margin-top: 10px;">
+          Arahkan QR Code dari WhatsApp pelanggan ke dalam kotak. Kamera akan memindai secara otomatis.
+        </p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

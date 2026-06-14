@@ -107,3 +107,982 @@ TypeError: Cannot read properties of undefined (reading 'getChat')
     at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
     at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:173:9
 -----------------------------------
+[11/6/2026, 13.38.45] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.49.17] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.49.17] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.49.23] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.49.31] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.49.35] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.58.59] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 13.59.18] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.00.24] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.00.42] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.00.43] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.01.48] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.02.47] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.02.48] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:549:9)
+    at process.processTimers (node:internal/timers:523:7)
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.02.48] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:261:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.02.50] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.02.53] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.03.04] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:192:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.04.11] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:287:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.09.12] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:294:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.36.58] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:294:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.38.03] ERROR AMBIL RIWAYAT:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:221:92
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.41.09] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:294:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.47.39] ERROR AMBIL DASHBOARD:
+Error: 16 UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at callErrorFromStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\call.js:32:19)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:359:73)
+    at Object.onReceiveStatus (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client-interceptors.js:327:181)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\resolving-call.js:135:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+for call at
+    at ServiceClientImpl.makeServerStreamRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\client.js:342:32)
+    at ServiceClientImpl.<anonymous> (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@grpc\grpc-js\build\src\make-client.js:105:19)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\v1\firestore_client.js:242:33
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:38:28
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\normalCalls\timeout.js:44:16
+    at Object.request (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:234:40)
+    at makeRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:159:28)
+    at retryRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\retry-request\index.js:119:5)
+    at StreamProxy.setStream (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streaming.js:225:37)
+    at StreamingApiCaller.call (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\streamingCalls\streamingApiCaller.js:54:16)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\google-gax\build\src\createApiCall.js:112:30
+Caused by: Error
+    at QueryUtil._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query-util.js:44:23)
+    at Query._getResponse (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:784:32)
+    at Query._get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:777:35)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:745:43
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:110:30
+    at NoopContextManager.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at EnabledTraceUtil.startActiveSpan (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\telemetry\enabled-trace-util.js:102:28)
+    at Query.get (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\@google-cloud\firestore\build\src\reference\query.js:744:43)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:294:14
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+-----------------------------------
+[11/6/2026, 14.50.13] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:201:9
+-----------------------------------
+[11/6/2026, 14.50.24] ERROR BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:201:9
+-----------------------------------
+[11/6/2026, 14.58.29] ERROR WA BUAT PESANAN:
+Error: WhatsApp client belum siap. Pastikan QR code sudah discan dan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:63:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:241:19
+-----------------------------------
+[11/6/2026, 15.00.03] ERROR WA UPDATE STATUS:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:57:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:313:19
+-----------------------------------
+[11/6/2026, 15.03.41] ERROR WA BUAT PESANAN:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:57:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:235:19
+-----------------------------------
+[14/6/2026, 01.26.24] ERROR WA BUAT PESANAN:
+TypeError: MessageMedia.fromDataURL is not a function
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:259:46
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------
+[14/6/2026, 01.27.41] ERROR WA BUAT PESANAN:
+TypeError: MessageMedia.fromDataURL is not a function
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:259:46
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------
+[14/6/2026, 01.30.02] ERROR WA BUAT PESANAN:
+TypeError: Cannot read properties of undefined (reading 'getChat')
+    at evaluate (evaluate at Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:44), <anonymous>:1:49)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:267:13
+-----------------------------------
+[14/6/2026, 01.31.59] ERROR WA BUAT PESANAN:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:77:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:267:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------
+[14/6/2026, 01.33.45] ERROR WA BUAT PESANAN:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:91:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:281:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------
+[14/6/2026, 01.37.36] ERROR WA BUAT PESANAN:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:94:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:342:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------

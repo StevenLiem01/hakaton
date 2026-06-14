@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner - Laundry App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .scanner-wrapper {
+            position: relative;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            aspect-ratio: 1;
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        #canvas {
+            display: none;
+        }
+
+        .scanner-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            border: 3px solid #00ff00;
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #00ff00;
+        }
+
+        .corner.tl { top: -3px; left: -3px; border-right: none; border-bottom: none; }
+        .corner.tr { top: -3px; right: -3px; border-left: none; border-bottom: none; }
+        .corner.bl { bottom: -3px; left: -3px; border-right: none; border-top: none; }
+        .corner.br { bottom: -3px; right: -3px; border-left: none; border-top: none; }
+
+        .status {
+            text-align: center;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status.scanning {
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: 500;
+        }
+
+        .status.success {
+            background: #e8f5e9;
+            color: #388e3c;
+            font-weight: 600;
+        }
+
+        .status.error {
+            background: #ffebee;
+            color: #c62828;
+            font-weight: 500;
+        }
+
+        .result-box {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            word-break: break-all;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-text {
+            font-size: 14px;
+            color: #333;
+            font-family: 'Courier New', monospace;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #856404;
+            margin-top: 20px;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 QR Code Scanner</h1>
+            <p>Scan WhatsApp QR Code menggunakan Webcam</p>
+        </div>
+
+        <div class="content">
+            <div class="status scanning" id="status">
+                ⏳ Menginisialisasi webcam...
+            </div>
+
+            <div class="scanner-wrapper">
+                <video id="video" playsinline></video>
+                <canvas id="canvas"></canvas>
+                <div class="scanner-frame">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+            </div>
+
+            <div id="resultContainer" class="hidden">
+                <div class="result-box">
+                    <div class="result-label">📍 QR Code Terdeteksi:</div>
+                    <div class="result-text" id="resultText"></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" id="startBtn" onclick="startScanning()">▶ Mulai Scan</button>
+                <button class="btn-secondary" id="stopBtn" onclick="stopScanning()">⏹ Berhenti</button>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Tips:</strong>
+                Posisikan QR code di dalam kotak hijau dan pastikan pencahayaan cukup untuk hasil terbaik.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let video = document.getElementById('video');
+        let canvas = document.getElementById('canvas');
+        let canvasContext = canvas.getContext('2d');
+        let scanning = false;
+        let animationId = null;
+
+        // Inisialisasi webcam
+        async function initCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment' }
+                });
+                video.srcObject = stream;
+                video.play();
+
+                video.onloadedmetadata = () => {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    updateStatus('scanning', '🎥 Webcam Siap! Klik "Mulai Scan" untuk memulai');
+                    document.getElementById('startBtn').disabled = false;
+                };
+
+                return true;
+            } catch (error) {
+                updateStatus('error', `❌ Akses Webcam Ditolak: ${error.message}`);
+                console.error('Error accessing camera:', error);
+                return false;
+            }
+        }
+
+        function startScanning() {
+            if (!video.srcObject) {
+                updateStatus('error', '❌ Webcam tidak tersedia');
+                return;
+            }
+
+            scanning = true;
+            updateStatus('scanning', '🔍 Scanning QR Code...');
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            scan();
+        }
+
+        function stopScanning() {
+            scanning = false;
+            if (animationId) cancelAnimationFrame(animationId);
+            updateStatus('scanning', '⏸ Scanning Dihentikan');
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+        }
+
+        function scan() {
+            if (!scanning) return;
+
+            canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+            const code = jsQR(imageData.data, imageData.width, imageData.height, {
+                inversionAttempts: 'dontInvert'
+            });
+
+            if (code) {
+                displayResult(code.data);
+                stopScanning();
+            } else {
+                animationId = requestAnimationFrame(scan);
+            }
+        }
+
+        function displayResult(data) {
+            updateStatus('success', '✅ QR Code Terdeteksi!');
+            document.getElementById('resultContainer').classList.remove('hidden');
+            document.getElementById('resultText').textContent = data;
+        }
+
+        function updateStatus(type, message) {
+            const statusEl = document.getElementById('status');
+            statusEl.className = `status ${type}`;
+            statusEl.textContent = message;
+        }
+
+        function copyToClipboard() {
+            const text = document.getElementById('resultText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ QR Code disalin ke clipboard!');
+            });
+        }
+
+        // Inisialisasi saat halaman dimuat
+        window.addEventListener('load', () => {
+            initCamera();
+        });
+
+        // Stop scanning saat halaman ditutup
+        window.addEventListener('beforeunload', () => {
+            if (video.srcObject) {
+                video.srcObject.getTracks().forEach(track => track.stop());
+            }
+        });
+    </script>
+</body>
+</html>
