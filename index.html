@@ -2246,9 +2246,41 @@
       // INI YANG PALING PENTING: Tangkap diskon & catatan
       const diskon = parseFloat(document.getElementById('diskon').value) || 0;
       const catatan = document.getElementById('catatan').value.trim();
-
+      
+      // ==========================================
+      // 🛡️ FRONTEND VALIDATION
+      // ==========================================
+      
+      // Validasi Kosong
       if (!nama || !noWa || isNaN(berat) || isNaN(totalHarga)) {
-        return Swal.fire('Error', 'Lengkapi form (Nama, No WA, Berat)!', 'warning');
+        return Swal.fire('Data Tidak Lengkap', 'Nama, No WA, dan Berat Cucian wajib diisi!', 'warning');
+      }
+
+      // Validasi Nama (Maks 50 karakter, Hanya Alfabet & Spasi)
+      const regexAlfabet = /^[A-Za-z\s]+$/;
+      if (nama.length > 50 || !regexAlfabet.test(nama)) {
+        return Swal.fire('Nama Tidak Valid', 'Nama maksimal 50 karakter dan HANYA boleh berisi huruf (alfabet).', 'warning');
+      }
+
+      // Validasi No WA (Hanya Angka, 9 s/d 13 digit)
+      const regexAngka = /^\d+$/;
+      if (noWa.length < 9 || noWa.length > 13 || !regexAngka.test(noWa)) {
+        return Swal.fire('Nomor WA Tidak Valid', 'Nomor WA harus berupa angka dan panjangnya antara 9 hingga 13 digit.', 'warning');
+      }
+
+      // Validasi Berat (Maksimal 100kg untuk mencegah salah ketik ekstrem)
+      if (berat <= 0 || berat > 100) {
+        return Swal.fire('Berat Tidak Valid', 'Berat cucian harus lebih dari 0 dan wajar (maksimal 100 kg).', 'warning');
+      }
+
+      // Validasi Diskon (Tidak boleh lebih besar dari total tagihan)
+      if (diskon > totalHarga && totalHarga > 0) {
+        return Swal.fire('Diskon Tidak Valid', 'Nominal diskon tidak boleh melebihi Total Harga!', 'warning');
+      }
+
+      // Validasi Catatan (Maks 200 karakter)
+      if (catatan.length > 200) {
+        return Swal.fire('Catatan Terlalu Panjang', 'Catatan maksimal 200 karakter.', 'warning');
       }
 
       setSubmitLoading(true);
@@ -2262,14 +2294,14 @@
 
         const data = await res.json();
 
-        if (res.ok) {
+        if (res.ok && data.success) {
           Swal.fire('Sukses', 'Pesanan berhasil dibuat!', 'success');
           document.getElementById('orderForm').reset();
           document.getElementById('svc1').checked = true;
           updatePreview();
           loadDashboard();
         } else {
-          throw new Error(data.message);
+          throw new Error(data.message || 'Terjadi kesalahan pada server.');
         }
       } catch (err) {
         Swal.fire('Gagal', err.message, 'error');
@@ -2736,13 +2768,27 @@
     // PROSES PENCARIAN DATA DARI HASIL SCAN
     // ═══════════════════════════════════════
     async function prosesHasilQR(idPesanan) {
-      // Bersihkan spasi kosong yang mungkin terbawa dari QR
-      const cleanId = String(idPesanan).trim();
-      
+      // 1. Bersihkan teks hasil scan & ekstrak ID Pesanan dari URL QR
+      //    (mengatasi format URL seperti http://host/order/ID, trailing slash, atau query string)
+      let cleanId = String(idPesanan).trim();
+      const keyword = '/order/';
+
+      if (cleanId.includes(keyword)) {
+        cleanId = cleanId.split(keyword)[1].replace(/\//g, '').split('?')[0].trim();
+      }
+
       Swal.fire({ title: 'Mencari Pesanan...', text: `Mencocokkan ID: ${cleanId}`, didOpen: () => Swal.showLoading() });
 
       try {
         const res = await fetch(`/api/pesanan/${cleanId}`, { headers: { 'Authorization': `Bearer ${token}` } });
+
+        // 2. Pastikan server membalas JSON (bukan halaman HTML 404) sebelum di-parse,
+        //    agar tidak muncul error "Unexpected token '<'"
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Format respons tidak valid dari server. ID Pesanan mungkin salah format.');
+        }
+
         const json = await res.json();
 
         if (!json.success) {
@@ -2837,15 +2883,25 @@
     }
 
     async function onScanSuccess(decodedText) {
-      // Ekstrak ID pesanan dari URL (http://localhost:3000/order/ID_PESANAN)
-      const parts = decodedText.split('/order/');
-      const idPesanan = parts.length > 1 ? parts[1].trim() : decodedText.trim();
+      // Ekstrak ID Pesanan dengan lebih kebal error (mengatasi trailing slash, query string, dll)
+      let idPesanan = decodedText.trim();
+      const keyword = '/order/';
+
+      if (idPesanan.includes(keyword)) {
+        idPesanan = idPesanan.split(keyword)[1].replace(/\//g, '').split('?')[0].trim();
+      }
 
       stopScanner();
       document.getElementById('scanStatus').textContent = `✅ QR terbaca! Mencari pesanan: ${idPesanan}`;
 
       try {
         const res = await fetch(`/api/order/${idPesanan}`, { headers: { 'Authorization': `Bearer ${token}` } });
+
+        const contentType = res.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Format respons tidak valid. ID Pesanan mungkin salah format.');
+        }
+
         const json = await res.json();
 
         if (!json.success) {

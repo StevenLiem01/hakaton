@@ -1162,3 +1162,94 @@ Caused by: Error
     at handle (D:\Campus\MES\hakaton\node_modules\router\index.js:435:11)
 >>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
 -----------------------------------
+[15/6/2026, 01.40.55] ERROR BUAT PESANAN:
+ReferenceError: teksDiskon is not defined
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:517:219
+-----------------------------------
+[15/6/2026, 01.41.06] ERROR BUAT PESANAN:
+ReferenceError: teksDiskon is not defined
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:517:219
+-----------------------------------
+[15/6/2026, 01.43.06] ERROR BUAT PESANAN:
+ReferenceError: teksDiskon is not defined
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:517:219
+-----------------------------------
+[15/6/2026, 01.48.02] ERROR BUAT PESANAN:
+ReferenceError: Cannot access 'diskon' before initialization
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:484:36
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:295:15
+    at processParams (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:291:5)
+    at serveStatic (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\serve-static\index.js:74:16)
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:342:13)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:291:5)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\body-parser\lib\read.js:171:5
+-----------------------------------
+[15/6/2026, 01.49.26] ERROR BUAT PESANAN:
+ReferenceError: Cannot access 'diskon' before initialization
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:485:36
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:295:15
+    at processParams (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:291:5)
+    at serveStatic (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\serve-static\index.js:74:16)
+    at Layer.handleRequest (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:342:13)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\router\index.js:291:5)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\body-parser\lib\read.js:171:5
+-----------------------------------
+[15/6/2026, 01.54.30] ERROR BUAT PESANAN:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:700:11)
+    at ServerResponse.header (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:686:10)
+    at ServerResponse.send (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:163:12)
+    at ServerResponse.json (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:252:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:551:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+-----------------------------------
+[15/6/2026, 11.54.50] ERROR BUAT PESANAN:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:700:11)
+    at ServerResponse.header (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:686:10)
+    at ServerResponse.send (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:163:12)
+    at ServerResponse.json (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:252:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:551:13
+-----------------------------------
+[15/6/2026, 12.48.49] ERROR UPDATE STATUS:
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:700:11)
+    at ServerResponse.header (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:686:10)
+    at ServerResponse.send (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:163:12)
+    at ServerResponse.json (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\express\lib\response.js:252:15)
+    at C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:631:13
+-----------------------------------
+[15/6/2026, 15.12.47] ERROR WA BUAT PESANAN:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
+    at #evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\Pongo\Documents\Project Kecil\Laundry App\Laundry Backend\index.js:557:13
+    at i (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4ioxu4/y6/l/en_US-j/RObDJLunzB3.js:720:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4ijWJ4/yL/l/en_US-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAHBBrRWQV8lCm.js:2030:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
+-----------------------------------

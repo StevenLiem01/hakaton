@@ -1,17 +1,12 @@
 const express = require('express');
 const admin = require('firebase-admin');
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
-<<<<<<< HEAD
 const QRCode = require('qrcode');
 const puppeteer = require('puppeteer');
-=======
 const qrcode = require('qrcode-terminal');
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
 const path = require('path');
 const fs = require('fs');
 const cron = require('node-cron');
-const QRCode = require('qrcode');
-const puppeteer = require('puppeteer');
 
 // ==========================================
 // HELPER: Template HTML Struk Digital
@@ -93,20 +88,18 @@ app.use(express.static(__dirname));
 // ==========================================
 // 1. Inisialisasi Firebase Database
 // ==========================================
-<<<<<<< HEAD
 let db;
 let serviceAccount;
+
 try {
     serviceAccount = require('./firebase-key.json');
 } catch (err) {
     console.error('❌ Tidak menemukan atau membaca file firebase-key.json:', err.message);
-    console.error('   Pastikan file firebase-key.json ada di folder Laundry Backend dan berformat JSON layanan akun (service account).');
     process.exit(1);
 }
 
 if (!serviceAccount || serviceAccount.type !== 'service_account' || !serviceAccount.client_email || !serviceAccount.private_key) {
     console.error('❌ File firebase-key.json tidak valid atau bukan service account key.');
-    console.error('   Unduh ulang private key dari Firebase Console → Project settings → Service accounts → Generate new private key.');
     process.exit(1);
 }
 
@@ -116,31 +109,17 @@ try {
         projectId: serviceAccount.project_id
     });
     db = admin.firestore();
-    console.log(`✅ Firebase berhasil diinisialisasi sebagai ${serviceAccount.client_email} (project: ${serviceAccount.project_id}).`);
+    console.log(`✅ Firebase berhasil diinisialisasi sebagai ${serviceAccount.client_email}.`);
 } catch (initErr) {
     console.error('❌ Gagal inisialisasi Firebase:', initErr);
     process.exit(1);
 }
-=======
-const serviceAccount = require('./firebase-key.json');
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
-const db = admin.firestore();
-console.log('✅ Firebase berhasil diinisialisasi.');
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
 
 // ==========================================
 // 2. Inisialisasi WhatsApp Client
 // ==========================================
-<<<<<<< HEAD
-let client;
 const whatsappSessionDir = path.join(__dirname, '.wwebjs_auth');
-=======
-const client = new Client({
-    authStrategy: new LocalAuth()
-});
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
+let client;
 
 let waReady = false;
 let latestWhatsAppAuthQR = null;
@@ -328,8 +307,6 @@ async function sendWhatsAppMessage(number, message, options = {}) {
 // ==========================================
 // FITUR BOT AUTO-REPLY WHATSAPP 🤖
 // ==========================================
-<<<<<<< HEAD
-=======
 client.on('message_create', async msg => {
     // Ambil teks pesan masuk dan bersihkan spasi ekstra
     const pesan = msg.body.trim();
@@ -377,8 +354,7 @@ client.on('message_create', async msg => {
         }
     }
 });
-client.initialize();
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
+
 
 // ==========================================
 // 3. Routing (API Endpoints) Utama
@@ -504,19 +480,51 @@ app.post('/buat-pesanan', async (req, res) => {
     // Tangkap tambahan data diskon dan catatan dari frontend
     const { nama, noWa, berat, layanan, totalHarga, diskon, catatan } = req.body;
 
+    // ==========================================
+    // 🛡️ BACKEND VALIDATION (Keamanan Server)
+    // ==========================================
+    
+    // Validasi Nama
+    const regexAlfabet = /^[A-Za-z\s]+$/;
+    if (!nama || nama.length > 50 || !regexAlfabet.test(nama)) {
+        return res.status(400).json({ success: false, message: 'Validasi Gagal: Nama maksimal 50 karakter (Alfabet saja).' });
+    }
+
+    // Validasi No WA
+    const regexAngka = /^\d+$/;
+    const strWa = String(noWa);
+    if (!strWa || strWa.length < 9 || strWa.length > 13 || !regexAngka.test(strWa)) {
+        return res.status(400).json({ success: false, message: 'Validasi Gagal: Nomor WA harus angka (9 - 13 digit).' });
+    }
+
+    // Validasi Catatan
+    if (catatan && String(catatan).length > 200) {
+        return res.status(400).json({ success: false, message: 'Validasi Gagal: Catatan maksimal 200 karakter.' });
+    }
+
+    // Validasi Logika Tambahan
+    if (Number(berat) <= 0 || Number(berat) > 100) {
+        return res.status(400).json({ success: false, message: 'Validasi Gagal: Berat cucian tidak valid.' });
+    }
+    if (Number(diskon) > Number(totalHarga) && Number(totalHarga) > 0) {
+        return res.status(400).json({ success: false, message: 'Validasi Gagal: Diskon melebihi total harga.' });
+    }
+
     try {
         const waktuSekarang = new Date();
         const diskonAktif = Number(diskon) || 0;
         const catatanAktif = catatan || '-';
+        const teksDiskon = diskonAktif > 0 ? `\n💸 *Diskon:* Rp ${diskonAktif.toLocaleString('id-ID')}` : '';
+        const teksCatatan = catatanAktif !== '-' ? `\n📝 *Catatan:* ${catatanAktif}` : '';
 
         // 1. Generate unique 4-digit receipt ID and save to Firebase
         const orderId = await generateUniqueOrderId();
         await db.collection('pesanan_laundry').doc(orderId).set({
             nama,
-            noWa,
-            berat,
+            noWa: strWa,
+            berat: Number(berat),
             layanan,
-            totalHarga,
+            totalHarga: Number(totalHarga),
             diskon: diskonAktif,
             catatan: catatanAktif,
             status: 'Diproses',
@@ -527,52 +535,40 @@ app.post('/buat-pesanan', async (req, res) => {
         const pesananBaru = { id: orderId };
 
         // 2. Format nomor WA
-        let formattedNumber = String(noWa).replace(/\D/g, '');
+        let formattedNumber = strWa;
         if (formattedNumber.startsWith('0')) {
             formattedNumber = '62' + formattedNumber.substring(1);
         }
         formattedNumber += '@c.us';
 
         // 3. Generate QR Code + Struk gambar & PDF
-        const strukturData = { nama, noWa, berat, layanan, totalHarga: Number(totalHarga), diskon: diskonAktif, catatan: catatanAktif };
+        const strukturData = { nama, noWa: strWa, berat, layanan, totalHarga: Number(totalHarga), diskon: diskonAktif, catatan: catatanAktif };
         const { pngBuffer } = await generateStrukMedia(strukturData, pesananBaru.id);
-
-<<<<<<< HEAD
+        
         // 4. Generate QR code (contains only the order ID) and send Struk Digital via WhatsApp
         const pesanWA = `Halo *${nama}*! 🧺✨\n\nPesanan laundry kamu sudah kami terima dan sedang *DIPROSES*. Berikut detailnya:\n\n🔖 *No. Struk:* ${pesananBaru.id}\n👕 *Layanan:* ${layanan}\n⚖️ *Berat:* ${berat} kg${teksDiskon}${teksCatatan}\n💰 *Total Tagihan:* Rp ${Number(totalHarga).toLocaleString('id-ID')}\n\nTunjukkan QR code ini saat mengambil cucian agar kami dapat memproses lebih cepat. Terima kasih! 🙏`;
 
         try {
-            // Generate QR PNG data URL (we encode just the order id; you can change to a URL if hosted)
-            const qrDataUrl = await QRCode.toDataURL(pesananBaru.id, { errorCorrectionLevel: 'M', margin: 2, type: 'image/png', width: 400 });
+            // 5. Kirim gambar Struk via WhatsApp (Hanya SATU pengiriman pesan)
+            const pngBase64 = pngBuffer.toString('base64');
+            const mediaStruk = new MessageMedia('image/png', pngBase64, `struk-${pesananBaru.id}.png`);
+            
+            console.log(`📤 Mengirim WA Struk Digital ke ${formattedNumber}`);
+            await sendWhatsAppMessage(formattedNumber, mediaStruk, { caption: pesanWA });
+            console.log('✅ WA Struk Digital berhasil dikirim.');
 
-            // Create MessageMedia from data URL and send with caption (receipt text)
-            // Convert data URL to mime + base64
-            const matches = qrDataUrl.match(/^data:(.+);base64,(.+)$/);
-            if (!matches) throw new Error('Invalid QR Data URL');
-            const mimeType = matches[1];
-            const base64Data = matches[2];
-            const media = new MessageMedia(mimeType, base64Data, `struk-${pesananBaru.id}.png`);
+            // Beri 'return' agar proses berhenti dan tidak error headers terkirim dua kali
+            return res.json({ success: true, message: 'Pesanan berhasil dibuat dan WA Struk terkirim!', idPesanan: pesananBaru.id });
 
-            console.log(`📤 Mengirim WA ke ${formattedNumber} dengan media (mime=${mimeType})`);
-            await sendWhatsAppMessage(formattedNumber, media, { caption: pesanWA });
-            console.log('✅ WA dengan QR berhasil dikirim.');
-
-            res.json({ success: true, message: 'Pesanan berhasil dibuat dan WA terkirim (dengan QR).', idPesanan: pesananBaru.id });
         } catch (sendError) {
             const waktuSend = new Date().toLocaleString('id-ID');
             const pesanLogSend = `[${waktuSend}] ERROR WA BUAT PESANAN:\n${sendError.stack}\n-----------------------------------\n`;
             fs.appendFileSync('logs.txt', pesanLogSend);
-            res.json({ success: true, message: 'Pesanan berhasil dibuat, tetapi WA gagal dikirim: ' + sendError.message, idPesanan: pesananBaru.id });
+            console.error('❌ Gagal kirim WA:', sendError.message);
+            
+            // Lapor sukses ke database meskipun WA gagal terkirim
+            return res.json({ success: true, message: 'Pesanan dibuat, tapi WA gagal dikirim: ' + sendError.message, idPesanan: pesananBaru.id });
         }
-=======
-        // 4. Kirim Struk sebagai Gambar via WhatsApp
-        const pngBase64 = pngBuffer.toString('base64');
-        const media = new MessageMedia('image/png', pngBase64, `struk-${pesananBaru.id}.png`);
-        const captionWA = `Halo *${nama}*! 🧺✨\n\nStruk digital pesananmu sudah siap! Simpan gambar ini dan tunjukkan *QR Code*-nya saat pengambilan.\n\n🔖 *No. Struk:* ${pesananBaru.id}\n📍 *Status:* Diproses\n\nKami kabari lagi kalau cucianmu sudah selesai! 🙏`;
-        await client.sendMessage(formattedNumber, media, { caption: captionWA });
-
-        res.json({ success: true, message: 'Pesanan berhasil dibuat dan struk gambar terkirim!', idPesanan: pesananBaru.id });
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
 
     } catch (error) {
         const waktu = new Date().toLocaleString('id-ID');
@@ -639,7 +635,6 @@ app.post('/api/update-status', async (req, res) => {
         formattedNumber += '@c.us';
 
         const pesanSelesai = `Halo *${nama}*! 🧺✨\n\nKabar gembira, cucianmu dengan No. Struk *${idPesanan}* sudah wangi, rapi, dan *SIAP DIAMBIL* di toko kami.\n\nTerima kasih sudah mempercayakan cucianmu pada LaundryKu!`;
-<<<<<<< HEAD
         
         try {
             await sendWhatsAppMessage(formattedNumber, pesanSelesai);
@@ -650,12 +645,6 @@ app.post('/api/update-status', async (req, res) => {
             fs.appendFileSync('logs.txt', pesanLogSend);
             res.json({ success: true, message: 'Status diupdate, tetapi WA gagal dikirim: ' + sendError.message });
         }
-=======
-
-        await client.sendMessage(formattedNumber, pesanSelesai);
-
-        res.json({ success: true, message: 'Status diupdate & WA Selesai terkirim!' });
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
     } catch (error) {
         const waktu = new Date().toLocaleString('id-ID');
         const pesanLog = `[${waktu}] ERROR UPDATE STATUS:\n${error.stack}\n-----------------------------------\n`;

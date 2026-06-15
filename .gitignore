@@ -7,9 +7,7 @@ firebase-key.json
 # WhatsApp session data
 .wwebjs_auth/
 .wwebjs_cache/
-.wwebjs_auth/
-.wwebjs_auth_retry_1/session-laundry-app/
-.wwebjs_auth_retry_2/session-laundry-app
+.wwebjs_auth_retry_*/
 
 # Generated receipts
 receipts/
@@ -24,8 +22,4 @@ status.txt
 
 # OS
 .DS_Store
-<<<<<<< HEAD
 Thumbs.db
-=======
-Thumbs.db
->>>>>>> 9dc381f9d5b9f0a0e22d1467c36e37877187c06f
