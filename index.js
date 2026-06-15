@@ -94,26 +94,32 @@ let db;
 let serviceAccount;
 
 try {
-    serviceAccount = require('./firebase-key.json');
+    if (process.env.FIREBASE_CONFIG_JSON) {
+        // Initialize from environment variable (useful for Vercel)
+        serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG_JSON);
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: "https://laundry-app-45d4c.firebaseio.com",
+            projectId: serviceAccount.project_id
+        });
+        db = admin.firestore();
+        console.log('✅ Firebase berhasil diinisialisasi via Environment Variable.');
+    } else {
+        // Fallback for local development using firebase-key.json
+        serviceAccount = require('./firebase-key.json');
+        if (!serviceAccount || serviceAccount.type !== 'service_account' || !serviceAccount.client_email || !serviceAccount.private_key) {
+            throw new Error('File firebase-key.json tidak valid atau bukan service account key.');
+        }
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: "https://laundry-app-45d4c.firebaseio.com",
+            projectId: serviceAccount.project_id
+        });
+        db = admin.firestore();
+        console.log('✅ Firebase berhasil diinisialisasi via file lokal.');
+    }
 } catch (err) {
-    console.error('❌ Tidak menemukan atau membaca file firebase-key.json:', err.message);
-    process.exit(1);
-}
-
-if (!serviceAccount || serviceAccount.type !== 'service_account' || !serviceAccount.client_email || !serviceAccount.private_key) {
-    console.error('❌ File firebase-key.json tidak valid atau bukan service account key.');
-    process.exit(1);
-}
-
-try {
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        projectId: serviceAccount.project_id
-    });
-    db = admin.firestore();
-    console.log(`✅ Firebase berhasil diinisialisasi sebagai ${serviceAccount.client_email}.`);
-} catch (initErr) {
-    console.error('❌ Gagal inisialisasi Firebase:', initErr);
+    console.error('❌ Gagal inisialisasi Firebase:', err.message || err);
     process.exit(1);
 }
 
