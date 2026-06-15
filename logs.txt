@@ -1253,3 +1253,157 @@ s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
     at h (https://static.whatsapp.net/rsrc.php/v4ijWJ4/yL/l/en_US-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAHBBrRWQV8lCm.js:2030:1489)
     at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
 -----------------------------------
+[15/6/2026, 17.43.49] ERROR BUAT PESANAN:
+Error: Could not find Chrome (ver. 127.0.6533.88). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: C:\Users\ASUS\.cache\puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+    at ChromeLauncher.resolveExecutablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:291:27)
+    at ChromeLauncher.executablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:209:25)
+    at ChromeLauncher.computeLaunchArguments (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:89:37)
+    at async ChromeLauncher.launch (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:70:28)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:69:21)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:547:31
+-----------------------------------
+[15/6/2026, 17.44.25] ERROR BUAT PESANAN:
+Error: Could not find Chrome (ver. 127.0.6533.88). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: C:\Users\ASUS\.cache\puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+    at ChromeLauncher.resolveExecutablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:291:27)
+    at ChromeLauncher.executablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:209:25)
+    at ChromeLauncher.computeLaunchArguments (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:89:37)
+    at async ChromeLauncher.launch (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:70:28)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:69:21)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:547:31
+-----------------------------------
+[15/6/2026, 17.44.29] ERROR BUAT PESANAN:
+Error: Could not find Chrome (ver. 127.0.6533.88). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: C:\Users\ASUS\.cache\puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+    at ChromeLauncher.resolveExecutablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:291:27)
+    at ChromeLauncher.executablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:209:25)
+    at ChromeLauncher.computeLaunchArguments (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:89:37)
+    at async ChromeLauncher.launch (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:70:28)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:69:21)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:547:31
+-----------------------------------
+[15/6/2026, 17.50.05] ERROR WA UPDATE STATUS:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:284:15)
+    at C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:641:19
+-----------------------------------
+[15/6/2026, 17.50.24] ERROR WA UPDATE STATUS:
+Error: WhatsApp client belum siap. Pastikan WhatsApp terhubung.
+    at sendWhatsAppMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:284:15)
+    at C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:641:19
+-----------------------------------
+[15/6/2026, 17.54.03] ERROR BUAT PESANAN:
+Error: Could not find Chrome (ver. 127.0.6533.88). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: C:\Users\ASUS\.cache\puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+    at ChromeLauncher.resolveExecutablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:291:27)
+    at ChromeLauncher.executablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:209:25)
+    at ChromeLauncher.computeLaunchArguments (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:89:37)
+    at async ChromeLauncher.launch (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:70:28)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:69:21)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:547:31
+-----------------------------------
+[15/6/2026, 17.54.25] ERROR BUAT PESANAN:
+Error: Could not find Chrome (ver. 127.0.6533.88). This can occur if either
+ 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or
+ 2. your cache path is incorrectly configured (which is: C:\Users\ASUS\.cache\puppeteer).
+For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.
+    at ChromeLauncher.resolveExecutablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:291:27)
+    at ChromeLauncher.executablePath (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:209:25)
+    at ChromeLauncher.computeLaunchArguments (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ChromeLauncher.js:89:37)
+    at async ChromeLauncher.launch (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\node\ProductLauncher.js:70:28)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:69:21)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:547:31
+-----------------------------------
+[15/6/2026, 18.04.34] ERROR WA BUAT PESANAN:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
+    at #evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:560:13
+    at i (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4ioxu4/yG/l/en_GB-j/Xlgy_jgvfCz.js:720:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4ixRG4/y8/l/en_GB-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAH.js:2030:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
+-----------------------------------
+[15/6/2026, 18.08.57] ERROR BUAT PESANAN:
+TimeoutError: Navigation timeout of 30000 ms exceeded
+    at new Deferred (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:59:34)
+    at Deferred.create (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:21:16)
+    at new LifecycleWatcher (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\LifecycleWatcher.js:69:60)
+    at CdpFrame.setContent (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Frame.js:235:29)
+    at async CdpPage.setContent (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:582:13)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:73:5)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:549:31
+-----------------------------------
+[15/6/2026, 18.13.42] ERROR WA BUAT PESANAN:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
+    at #evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:570:13
+    at i (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4ioxu4/ye/l/en_US-j/Xlgy_jgvfCz.js:720:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4ixRG4/yF/l/en_US-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAH.js:2030:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
+-----------------------------------
+[15/6/2026, 19.00.42] ERROR WA UPDATE STATUS:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
+    at #evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:653:13
+    at i (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4ioxu4/ye/l/en_US-j/Xlgy_jgvfCz.js:720:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4ixRG4/yF/l/en_US-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAH.js:2030:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
+-----------------------------------
+[15/6/2026, 19.23.06] ERROR BUAT PESANAN:
+TimeoutError: Navigation timeout of 30000 ms exceeded
+    at new Deferred (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:59:34)
+    at Deferred.create (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\util\Deferred.js:21:16)
+    at new LifecycleWatcher (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\LifecycleWatcher.js:69:60)
+    at CdpFrame.setContent (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\Frame.js:235:29)
+    at async CdpPage.setContent (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:582:13)
+    at async generateStrukMedia (C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:73:5)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:559:31
+-----------------------------------
+[15/6/2026, 22.20.43] ERROR WA UPDATE STATUS:
+Error: No LID for user
+s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:80:180)
+    at #evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:391:56)
+    at async ExecutionContext.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\ExecutionContext.js:277:16)
+    at async IsolatedWorld.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\cdp\IsolatedWorld.js:100:16)
+    at async CdpFrame.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Frame.js:362:20)
+    at async CdpPage.evaluate (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\node_modules\puppeteer-core\lib\cjs\puppeteer\api\Page.js:830:20)
+    at async Client.sendMessage (C:\Users\ASUS\Documents\LaundryProject\hakaton\node_modules\whatsapp-web.js\src\Client.js:1533:25)
+    at async C:\Users\ASUS\Documents\LaundryProject\hakaton\index.js:653:13
+    at i (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:348)
+    at l (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:109:124)
+    at <anonymous> (https://static.whatsapp.net/rsrc.php/v4ioxu4/ye/l/en_US-j/Xlgy_jgvfCz.js:720:1844)
+    at h (https://static.whatsapp.net/rsrc.php/v4ixRG4/yF/l/en_US-j/zlFvn9GZ0ah1kxREdProoXHPpL2jhDhmbWl_HC4ZDPfuss5lEWJ9qgGxyL8jkSlw8E097BawAfjk63ymcbTVgvjxJsIyvSsy5HcRlDZ3zq8-d-kTPBrzWYYOqvprk93LUL0Kl6CCWMchZapBhnmWVUkOZOC3ZbmVtLyQ1nkRtyC8GFs0THVU0xH2KAH.js:2030:1489)
+    at s (https://static.whatsapp.net/rsrc.php/v4/y6/r/9XjTbjv73Qt.js:79:179)
+-----------------------------------

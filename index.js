@@ -66,7 +66,9 @@ async function generateStrukMedia(data, idPesanan) {
     const receiptDir = path.join(__dirname, 'receipts');
     fs.mkdirSync(receiptDir, { recursive: true });
 
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const browser = await puppeteer.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    headless: true, 
+    args: ['--no-sandbox', '--disable-setuid-sandbox']});
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'networkidle0' });
     await page.setViewport({ width: 400, height: 800, deviceScaleFactor: 2 });
@@ -169,6 +171,7 @@ async function initializeWhatsAppClient(retry = 0) {
     client = new Client({
         authStrategy: new LocalAuth({ clientId: 'laundry-app', dataPath: sessionDir }),
         puppeteer: {
+            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
             headless: true,
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
         }
@@ -288,16 +291,26 @@ async function sendWhatsAppMessage(number, message, options = {}) {
     }
 
     let chatId = String(number).trim();
+
     if (!chatId.includes('@')) {
-        let formattedNumber = chatId.replace(/\D/g, '');
+        // 1. Hilangkan semua karakter non-angka (+, -, spasi)
+        let formattedNumber = chatId.replace(/\D/g, ''); 
+
+        // 2. JIKA diawali '0', ubah jadi '62' (Contoh: 0812 -> 62812)
         if (formattedNumber.startsWith('0')) {
             formattedNumber = '62' + formattedNumber.substring(1);
+        } 
+        // 3. JIKA langsung diawali '8' (seperti yang kamu lakukan tadi), tambahkan '62' di depannya
+        else if (formattedNumber.startsWith('8')) {
+            formattedNumber = '62' + formattedNumber;
         }
+        // JIKA user ngetik '628...', kode akan melewatinya dengan aman tanpa merusak nomor
 
         if (formattedNumber.length < 8) {
             throw new Error('Nomor WhatsApp tidak valid: terlalu pendek.');
         }
 
+        // 4. Hasil akhirnya dijamin selalu valid, misal: 6282233310460@c.us
         chatId = `${formattedNumber}@c.us`;
     }
 
@@ -615,30 +628,30 @@ app.post('/api/update-status', async (req, res) => {
     const { idPesanan, nama, noWa } = req.body;
 
     try {
+        // Update status to 'Siap Diambil' (ready for pickup)
         await db.collection('pesanan_laundry').doc(idPesanan).update({
-            status: 'Selesai'
+            status: 'Siap Diambil'
         });
 
+        // Optionally notify customer via WhatsApp that laundry is ready for pickup
         if (!noWa || noWa === 'undefined' || String(noWa).trim() === '') {
             return res.json({ success: true, message: 'Status diupdate (WA tidak dikirim karena nomor kosong).' });
         }
 
         let formattedNumber = String(noWa).replace(/\D/g, '');
-
         if (formattedNumber.length < 8) {
             return res.json({ success: true, message: 'Status diupdate (WA tidak dikirim karena nomor tidak valid).' });
         }
-
         if (formattedNumber.startsWith('0')) {
             formattedNumber = '62' + formattedNumber.substring(1);
         }
         formattedNumber += '@c.us';
 
-        const pesanSelesai = `Halo *${nama}*! 🧺✨\n\nKabar gembira, cucianmu dengan No. Struk *${idPesanan}* sudah wangi, rapi, dan *SIAP DIAMBIL* di toko kami.\n\nTerima kasih sudah mempercayakan cucianmu pada LaundryKu!`;
-        
+        const pesanReady = `Halo *${nama}*! 🧺✨\n\nPesanan dengan No. Struk *${idPesanan}* telah selesai dicuci dan *SIAP DIAMBIL* di toko kami. Silakan datang membawa struk/QR untuk pengambilan.\n\nTerima kasih!`;
+
         try {
-            await sendWhatsAppMessage(formattedNumber, pesanSelesai);
-            res.json({ success: true, message: 'Status diupdate & WA Selesai terkirim!' });
+            await sendWhatsAppMessage(formattedNumber, pesanReady);
+            res.json({ success: true, message: 'Status diupdate menjadi Siap Diambil & notifikasi WA terkirim.' });
         } catch (sendError) {
             const waktuSend = new Date().toLocaleString('id-ID');
             const pesanLogSend = `[${waktuSend}] ERROR WA UPDATE STATUS:\n${sendError.stack}\n-----------------------------------\n`;
@@ -650,6 +663,49 @@ app.post('/api/update-status', async (req, res) => {
         const pesanLog = `[${waktu}] ERROR UPDATE STATUS:\n${error.stack}\n-----------------------------------\n`;
         fs.appendFileSync('logs.txt', pesanLog);
         res.status(500).json({ success: false, message: 'Gagal update status pesanan. Silakan cek logs.txt' });
+    }
+});
+
+
+// New endpoint: pickup confirmation via QR scan
+app.post('/api/pickup/:id', async (req, res) => {
+    const idPesanan = req.params.id;
+    try {
+        const docRef = db.collection('pesanan_laundry').doc(idPesanan);
+        const doc = await docRef.get();
+        if (!doc.exists) return res.status(404).json({ success: false, message: 'Pesanan tidak ditemukan.' });
+
+        const data = doc.data();
+        const currentStatus = (data.status || '').toLowerCase();
+
+        // Only allow pickup if currently ready for pickup
+        if (!(currentStatus === 'siap diambil' || currentStatus === 'siap')) {
+            return res.status(400).json({ success: false, message: `Pesanan saat ini bukan 'Siap Diambil' (status: ${data.status}).` });
+        }
+
+        await docRef.update({ status: 'Sudah Diambil', pickupAt: new Date().toISOString(), reminderTerkirim: true });
+
+        // Notify customer (optional) that their order has been picked up
+        if (data.noWa) {
+            try {
+                let formattedNumber = String(data.noWa).replace(/\D/g, '');
+                if (formattedNumber.startsWith('0')) formattedNumber = '62' + formattedNumber.substring(1);
+                if (formattedNumber.length >= 8) {
+                    formattedNumber += '@c.us';
+                    const pesanPicked = `Terima kasih, pesanan laundry ID ${idPesanan} telah berhasil diambil!`;
+                    await sendWhatsAppMessage(formattedNumber, pesanPicked);
+                }
+            } catch (waErr) {
+                const waktuSend = new Date().toLocaleString('id-ID');
+                fs.appendFileSync('logs.txt', `[${waktuSend}] ERROR WA PICKUP:\n${waErr.stack}\n-----------------------------------\n`);
+            }
+        }
+
+        res.json({ success: true, message: 'Status diupdate: Sudah Diambil' });
+    } catch (err) {
+        const waktu = new Date().toLocaleString('id-ID');
+        fs.appendFileSync('logs.txt', `[${waktu}] ERROR PICKUP:\n${err.stack}\n-----------------------------------\n`);
+        res.status(500).json({ success: false, message: 'Gagal memproses pickup: ' + err.message });
     }
 });
 
@@ -964,17 +1020,7 @@ app.get('/api/pesanan/:id', async (req, res) => {
     }
 });
 
-// API: tandai pesanan diambil (pickup)
-app.post('/api/pickup/:id', async (req, res) => {
-    const id = req.params.id;
-    try {
-        await db.collection('pesanan_laundry').doc(id).update({ status: 'Diambil' });
-        res.json({ success: true, message: 'Pesanan ditandai Diambil.' });
-    } catch (err) {
-        console.error('❌ [API] Error pickup pesanan:', err.message);
-        res.status(500).json({ success: false, message: 'Gagal menandai pickup: ' + err.message });
-    }
-});
+
 
 // ==========================================
 // 8. Penutupan Server yang Aman (Graceful Shutdown)
