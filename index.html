@@ -2982,6 +2982,7 @@
         if (!html5QrCodeModal) {
           html5QrCodeModal = new Html5Qrcode('qrVideo');
         }
+<<<<<<< HEAD
         await html5QrCodeModal.start(
           { facingMode: 'environment' },
           config,
@@ -2992,6 +2993,22 @@
           () => { /* frame ini gagal terbaca, lanjut scan */ }
         );
         modalScannerAktif = true;
+=======
+        
+        elements.video.srcObject = stream;
+        
+        // Memaksa video untuk play tanpa suara agar tidak diblokir browser
+        elements.video.setAttribute("playsinline", true);
+        elements.video.muted = true;
+        elements.video.play().catch(() => {});
+
+        updateQRStatus('scanning', '🔍 Memindai QR Code otomatis...');
+        qrScanning = true;
+        
+        // Mulai scanning
+        requestAnimationFrame(scanQRCode);
+
+>>>>>>> cea90e0722f52454298f6892fed3599a396bb13d
       } catch (error) {
         // Fallback: kamera belakang tidak tersedia (laptop), pakai kamera default
         try {
@@ -3014,11 +3031,41 @@
       }
     }
 
+<<<<<<< HEAD
     function stopQRCameraModal() {
       if (html5QrCodeModal && modalScannerAktif) {
         html5QrCodeModal.stop().then(() => {
           modalScannerAktif = false;
         }).catch(() => { modalScannerAktif = false; });
+=======
+    function scanQRCode() {
+      if (!qrScanning) return;
+      const elements = getQRElements();
+
+      // PERBAIKAN: Pastikan lensa kamera sudah benar-benar menangkap cahaya/gambar (HAVE_ENOUGH_DATA)
+      if (elements.video.readyState === 4 && elements.video.videoWidth > 0 && elements.video.videoHeight > 0) {
+        
+        // Sesuaikan ukuran kanvas secara dinamis
+        elements.canvas.height = elements.video.videoHeight;
+        elements.canvas.width = elements.video.videoWidth;
+        
+        qrCanvasContext = elements.canvas.getContext("2d", { willReadFrequently: true });
+        qrCanvasContext.drawImage(elements.video, 0, 0, elements.canvas.width, elements.canvas.height);
+        
+        const imageData = qrCanvasContext.getImageData(0, 0, elements.canvas.width, elements.canvas.height);
+        
+        // Proses pembacaan QR Code
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "attemptBoth",
+        });
+
+        // Jika berhasil terbaca
+        if (code && code.data !== "") {
+          closeQRScanner();
+          prosesHasilQR(code.data);
+          return; // Hentikan fungsi agar tidak memindai berulang-ulang
+        }
+>>>>>>> cea90e0722f52454298f6892fed3599a396bb13d
       }
     }
 
@@ -3090,6 +3137,11 @@
           return Swal.fire('Tidak Bisa Pickup', `Pesanan ${cleanId} belum siap diambil. Status saat ini: ${STATUS_LABEL[serverStatus] || order.status || 'Unknown'}.`, 'warning');
         }
 
+<<<<<<< HEAD
+=======
+        // --- SKEMA ELEGAN AUTO-FIND DIMULAI ---
+
+>>>>>>> cea90e0722f52454298f6892fed3599a396bb13d
         // --- SKEMA ELEGAN AUTO-FIND DIMULAI ---
         Swal.close(); // Tutup popup loading segera
 
@@ -3120,6 +3172,42 @@
               timer: 3000,
               showConfirmButton: false
             });
+            
+            // If we opened scanner specifically for pickup, and the scanned ID matches the focused order, call pickup API
+            if (window.focusedPickupId && window.focusedPickupId === cleanId) {
+              // call pickup endpoint
+              (async () => {
+                  try {
+                    let r = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+                    let j = await r.json();
+                    if (r.ok && j && j.success) {
+                      Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j.message, timer: 2000, showConfirmButton: false });
+                      loadRiwayat();
+                      loadDashboard();
+                    } else {
+                      // If pickup failed because status not ready, try marking as 'Siap Diambil' then pickup
+                      if (j && j.message && /bukan 'Siap Diambil'/i.test(j.message)) {
+                        // call update-status then retry
+                        await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }, body: JSON.stringify({ idPesanan: cleanId, nama: order.nama || '', noWa: order.noWa || '' }) });
+                        // retry pickup
+                        let r2 = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+                        let j2 = await r2.json();
+                        if (r2.ok && j2 && j2.success) {
+                          Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j2.message, timer: 2000, showConfirmButton: false });
+                          loadRiwayat();
+                          loadDashboard();
+                        } else {
+                          Swal.fire('Gagal', j2 && j2.message ? j2.message : 'Gagal memproses pickup setelah update.', 'error');
+                        }
+                      } else {
+                        Swal.fire('Gagal', j && j.message || 'Gagal memproses pickup', 'error');
+                      }
+                    }
+                  } catch (err) {
+                    Swal.fire('Error', 'Gagal memproses pickup: ' + err.message, 'error');
+                  }
+                })();
+            }
         }, 100);
 
       } catch (err) {
