@@ -96,7 +96,17 @@ let db;
 let serviceAccount;
 
 try {
-    if (process.env.FIREBASE_CONFIG_JSON) {
+    if (process.env.FIREBASE_CREDENTIALS) {
+        // Running on Render or environment with FIREBASE_CREDENTIALS
+        serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount),
+            databaseURL: "https://laundry-app-45d4c.firebaseio.com",
+            projectId: serviceAccount.project_id
+        });
+        db = admin.firestore();
+        console.log('✅ Firebase berhasil diinisialisasi via FIREBASE_CREDENTIALS.');
+    } else if (process.env.FIREBASE_CONFIG_JSON) {
         // Initialize from environment variable (useful for Vercel)
         serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG_JSON);
         admin.initializeApp({
@@ -105,7 +115,7 @@ try {
             projectId: serviceAccount.project_id
         });
         db = admin.firestore();
-        console.log('✅ Firebase berhasil diinisialisasi via Environment Variable.');
+        console.log('✅ Firebase berhasil diinisialisasi via FIREBASE_CONFIG_JSON.');
     } else {
         // Fallback for local development using firebase-key.json
         serviceAccount = require('./firebase-key.json');

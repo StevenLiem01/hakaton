@@ -223,29 +223,40 @@
       margin-top: 18px;
       color: #7c4d00;
     }
+
     .wa-auth-card h4 {
       margin: 0 0 10px;
       font-size: 1rem;
       color: #9a5800;
     }
+
     .wa-auth-card p {
       margin: 0 0 8px;
       font-size: .9rem;
       line-height: 1.5;
     }
+
     .wa-auth-status {
       display: inline-flex;
       gap: 8px;
       align-items: center;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,160,0,.16);
+      background: rgba(255, 160, 0, .16);
       color: #9a5800;
       font-weight: 700;
       font-size: .82rem;
     }
-    .wa-auth-status.ready { background: rgba(0,214,170,.16); color: #0f766e; }
-    .wa-auth-status.pending { background: rgba(255,77,79,.12); color: #b91c1c; }
+
+    .wa-auth-status.ready {
+      background: rgba(0, 214, 170, .16);
+      color: #0f766e;
+    }
+
+    .wa-auth-status.pending {
+      background: rgba(255, 77, 79, .12);
+      color: #b91c1c;
+    }
 
     /* Mobile menu toggle */
     .btn-mob-menu {
@@ -1050,7 +1061,9 @@
       color: #b45309;
     }
 
-    .badge-status.siap .dot { background: #b45309; }
+    .badge-status.siap .dot {
+      background: #b45309;
+    }
 
     .badge-status.selesai .dot {
       background: #00b894;
@@ -1109,8 +1122,8 @@
     }
 
     .detail-summary {
-      background: linear-gradient(135deg, rgba(15,122,255,.08), rgba(255,255,255,0.95));
-      border: 1px solid rgba(15,122,255,.15);
+      background: linear-gradient(135deg, rgba(15, 122, 255, .08), rgba(255, 255, 255, 0.95));
+      border: 1px solid rgba(15, 122, 255, .15);
       border-radius: 22px;
       padding: 22px;
       display: flex;
@@ -1142,8 +1155,8 @@
       font-size: .78rem;
       font-weight: 700;
       color: #0f7aff;
-      background: rgba(15,122,255,.12);
-      border: 1px solid rgba(15,122,255,.18);
+      background: rgba(15, 122, 255, .12);
+      border: 1px solid rgba(15, 122, 255, .18);
     }
 
     .detail-actions {
@@ -1195,7 +1208,7 @@
 
     .detail-notes {
       background: #ffffff;
-      border: 1px solid rgba(15,122,255,.12);
+      border: 1px solid rgba(15, 122, 255, .12);
       border-radius: 16px;
       padding: 18px 20px;
       color: var(--text-main);
@@ -1513,73 +1526,197 @@
 
     /* QR Scanner Modal Styles */
     .qr-modal {
-      display: none; position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(2px);
-      z-index: 9999; align-items: center; justify-content: center;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
     }
-    .qr-modal.active { display: flex; }
+
+    .qr-modal.active {
+      display: flex;
+    }
+
     .qr-modal-content {
-      background: var(--bg-card); border-radius: var(--radius-card);
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      max-width: 500px; width: 90%; max-height: 90vh;
-      overflow: auto; position: relative;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow: auto;
+      position: relative;
     }
+
     .qr-modal-header {
-      padding: 24px; border-bottom: 1px solid var(--border-color);
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: linear-gradient(135deg, #fafbff, #fff);
     }
-    .qr-modal-header h2 { margin: 0; font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
-    .qr-modal-close {
-      background: none; border: none; font-size: 1.5rem; color: var(--text-muted);
-      cursor: pointer; transition: all .2s;
+
+    .qr-modal-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
     }
-    .qr-modal-close:hover { color: var(--text-main); transform: rotate(90deg); }
-    .qr-modal-body { padding: 24px; }
+
+    .qr-modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .qr-modal-close:hover {
+      color: var(--text-main);
+      transform: rotate(90deg);
+    }
+
+    .qr-modal-body {
+      padding: 24px;
+    }
 
     .qr-scanner-wrapper {
-      position: relative; background: #000; border-radius: 15px;
-      overflow: hidden; margin-bottom: 20px; aspect-ratio: 1;
+      position: relative;
+      background: #000;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      aspect-ratio: 1;
     }
-    #qrVideo { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    #qrVideo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
     .qr-frame {
-      position: absolute; top: 50%; left: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      width: 70%; height: 70%;
+      width: 70%;
+      height: 70%;
       border: 3px solid #00ff00;
       border-radius: 15px;
       box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3);
     }
+
     .qr-status {
-      text-align: center; padding: 15px; background: #f5f5f5;
-      border-radius: 10px; margin-bottom: 20px; min-height: 50px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 500; font-size: 0.9rem;
+      text-align: center;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
-    .qr-status.scanning { background: #e3f2fd; color: #1976d2; }
-    .qr-status.success { background: #e8f5e9; color: #388e3c; }
-    .qr-status.error { background: #ffebee; color: #c62828; }
+
+    .qr-status.scanning {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+
+    .qr-status.success {
+      background: #e8f5e9;
+      color: #388e3c;
+    }
+
+    .qr-status.error {
+      background: #ffebee;
+      color: #c62828;
+    }
 
     .qr-result-box {
-      background: #f9f9f9; border: 2px solid #ddd; border-radius: 10px;
-      padding: 15px; margin-bottom: 20px; word-break: break-all;
-      max-height: 150px; overflow-y: auto; display: none;
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      word-break: break-all;
+      max-height: 150px;
+      overflow-y: auto;
+      display: none;
     }
-    .qr-result-box.active { display: block; }
-    .qr-result-label { font-size: 0.8rem; color: #999; margin-bottom: 8px; font-weight: 700; }
-    .qr-result-text { font-size: 0.9rem; color: #333; font-family: 'Courier New', monospace; }
 
-    .qr-button-group { display: flex; gap: 10px; margin-bottom: 20px; }
-    .qr-button-group button { flex: 1; padding: 10px 16px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-    .qr-btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-    .qr-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3); }
-    .qr-btn-secondary { background: #f0f0f0; color: #333; }
-    .qr-btn-secondary:hover { background: #e0e0e0; }
+    .qr-result-box.active {
+      display: block;
+    }
+
+    .qr-result-label {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .qr-result-text {
+      font-size: 0.9rem;
+      color: #333;
+      font-family: 'Courier New', monospace;
+    }
+
+    .qr-button-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .qr-button-group button {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .qr-btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .qr-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    }
+
+    .qr-btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .qr-btn-secondary:hover {
+      background: #e0e0e0;
+    }
 
     @media (max-width: 600px) {
-      .qr-modal-content { max-width: 95%; }
-      .qr-modal-body { padding: 16px; }
+      .qr-modal-content {
+        max-width: 95%;
+      }
+
+      .qr-modal-body {
+        padding: 16px;
+      }
     }
   </style>
 </head>
@@ -1607,14 +1744,12 @@
     <div id="shiftStatusBadge" style="margin-right:10px;">
       <span id="shiftBadgeInactive"
         style="display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.35);border-radius:50px;padding:5px 13px;font-size:.78rem;font-weight:700;color:#ef4444;cursor:pointer;transition:all .2s;"
-        onclick="triggerOpenShiftModal()"
-        title="Klik untuk Buka Shift">
+        onclick="triggerOpenShiftModal()" title="Klik untuk Buka Shift">
         🔴 Shift Belum Buka
       </span>
       <span id="shiftBadgeActive"
         style="display:none;align-items:center;gap:6px;background:rgba(0,212,170,.12);border:1px solid rgba(0,212,170,.3);border-radius:50px;padding:5px 13px;font-size:.78rem;font-weight:700;color:#00d4aa;cursor:pointer;transition:all .2s;"
-        onclick="triggerCloseShiftModal()"
-        title="Klik untuk Tutup Shift">
+        onclick="triggerCloseShiftModal()" title="Klik untuk Tutup Shift">
         🟢 Shift Aktif: <span id="shiftBadgeActiveName" style="margin-left:3px;"></span>
       </span>
     </div>
@@ -1761,8 +1896,12 @@
                     <i class="bi bi-arrow-right qa-arrow"></i>
                   </button>
                   <button class="qa-card" onclick="openQRScanner()" style="border-radius:12px;padding:14px 16px;">
-                    <div class="qa-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6"><i class="bi bi-qr-code"></i></div>
-                    <div><div class="qa-title">Scan QR</div><div class="qa-sub">Pindai kode QR</div></div>
+                    <div class="qa-icon" style="background:rgba(139,92,246,.1);color:#8b5cf6"><i
+                        class="bi bi-qr-code"></i></div>
+                    <div>
+                      <div class="qa-title">Scan QR</div>
+                      <div class="qa-sub">Pindai kode QR</div>
+                    </div>
                     <i class="bi bi-arrow-right qa-arrow"></i>
                   </button>
                 </div>
@@ -2058,12 +2197,16 @@
                 <div class="detail-summary">
                   <div>
                     <h3>Detail Pesanan</h3>
-                    <p>Semua informasi transaksi dikumpulkan di sini agar proses pickup dan follow-up jadi lebih mudah.</p>
+                    <p>Semua informasi transaksi dikumpulkan di sini agar proses pickup dan follow-up jadi lebih mudah.
+                    </p>
                   </div>
-                  <div class="detail-badge" id="detailOrderStatusBadge">Status: <span id="detailOrderStatusBadgeText">–</span></div>
+                  <div class="detail-badge" id="detailOrderStatusBadge">Status: <span
+                      id="detailOrderStatusBadgeText">–</span></div>
                   <div class="detail-actions" id="detailActionButtons">
-                    <button class="btn-tbl" onclick="navigateTo('view-riwayat')"><i class="bi bi-arrow-left"></i> Kembali</button>
-                    <button class="btn-tbl" onclick="openOrderPage()"><i class="bi bi-box-arrow-up-right"></i> Lihat Halaman Publik</button>
+                    <button class="btn-tbl" onclick="navigateTo('view-riwayat')"><i class="bi bi-arrow-left"></i>
+                      Kembali</button>
+                    <button class="btn-tbl" onclick="openOrderPage()"><i class="bi bi-box-arrow-up-right"></i> Lihat
+                      Halaman Publik</button>
                   </div>
                 </div>
 
@@ -2280,7 +2423,7 @@
     /** Perbarui tampilan badge shift di navbar */
     function updateShiftBadgeUI() {
       const inactive = document.getElementById('shiftBadgeInactive');
-      const active   = document.getElementById('shiftBadgeActive');
+      const active = document.getElementById('shiftBadgeActive');
       if (!inactive || !active) return;
       if (activeShift) {
         inactive.style.display = 'none';
@@ -2296,7 +2439,7 @@
     /** Cek status shift saat halaman dimuat (global — tidak filter per kasir) */
     async function checkShiftStatus() {
       try {
-        const res  = await fetch('/api/shift/status', { headers: { 'Authorization': `Bearer ${token}` } });
+        const res = await fetch('/api/shift/status', { headers: { 'Authorization': `Bearer ${token}` } });
         const json = await res.json();
         activeShift = (json.success && json.hasActiveShift) ? json.shift : null;
       } catch (err) {
@@ -2331,9 +2474,9 @@
         confirmButtonColor: '#0f7aff',
         focusConfirm: false,
         preConfirm: () => {
-          const nama  = document.getElementById('swal-input-nama').value.trim();
+          const nama = document.getElementById('swal-input-nama').value.trim();
           const modal = document.getElementById('swal-input-modal').value;
-          const num   = Number(modal);
+          const num = Number(modal);
           if (!nama) {
             Swal.showValidationMessage('Nama kasir tidak boleh kosong.');
             return false;
@@ -2421,12 +2564,12 @@
         const s = json.summary;
         const discrepancy = s.discrepancy;
         const discrepancyColor = discrepancy < 0 ? '#ef4444' : (discrepancy > 0 ? '#f59e0b' : '#00b894');
-        const discrepancyIcon  = discrepancy < 0 ? '🔴 KURANG' : (discrepancy > 0 ? '🟡 LEBIH' : '🟢 SESUAI');
+        const discrepancyIcon = discrepancy < 0 ? '🔴 KURANG' : (discrepancy > 0 ? '🟡 LEBIH' : '🟢 SESUAI');
         const discrepancyLabel = discrepancy !== 0
           ? `<span style="color:${discrepancyColor};font-weight:800;">${discrepancyIcon} Rp ${Math.abs(discrepancy).toLocaleString('id-ID')}</span>`
           : `<span style="color:#00b894;font-weight:800;">🟢 TIDAK ADA SELISIH</span>`;
         const startDt = new Date(s.startTime).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
-        const endDt   = new Date(s.endTime).toLocaleString('id-ID',   { dateStyle: 'medium', timeStyle: 'short' });
+        const endDt = new Date(s.endTime).toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' });
 
         activeShift = null;
         updateShiftBadgeUI();
@@ -2449,9 +2592,9 @@
                 <div style="display:flex;justify-content:space-between;padding:13px 16px;font-size:.95rem;${discrepancy !== 0 ? 'background:rgba(239,68,68,.06);' : 'background:rgba(0,184,148,.05);'}"><span style="font-weight:700;">⚖️ Selisih Uang</span>${discrepancyLabel}</div>
               </div>
               ${discrepancy !== 0
-                ? `<div style="background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.25);border-radius:10px;padding:10px 14px;font-size:.82rem;color:#b91c1c;font-weight:600;">⚠️ Ada selisih kas! Harap laporkan ke supervisor dan periksa kembali transaksi.</div>`
-                : `<div style="background:rgba(0,184,148,.08);border:1.5px solid rgba(0,184,148,.25);border-radius:10px;padding:10px 14px;font-size:.82rem;color:#0f766e;font-weight:600;">✅ Kas sesuai. Shift ditutup dengan baik!</div>`
-              }
+              ? `<div style="background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.25);border-radius:10px;padding:10px 14px;font-size:.82rem;color:#b91c1c;font-weight:600;">⚠️ Ada selisih kas! Harap laporkan ke supervisor dan periksa kembali transaksi.</div>`
+              : `<div style="background:rgba(0,184,148,.08);border:1.5px solid rgba(0,184,148,.25);border-radius:10px;padding:10px 14px;font-size:.82rem;color:#0f766e;font-weight:600;">✅ Kas sesuai. Shift ditutup dengan baik!</div>`
+            }
             </div>`,
           confirmButtonText: 'Tutup',
           confirmButtonColor: '#0f7aff'
@@ -2479,11 +2622,11 @@
 
       let totalTerhitung = 0;
       if (layanan !== '—' && berat > 0) {
-          const subtotal = berat * (hargaLayananData[layanan] || 0);
-          let totalAkhir = subtotal - diskon;
-          if (totalAkhir < 0) totalAkhir = 0; // Cegah angka minus
-          totalTerhitung = totalAkhir;
-          document.getElementById('totalHarga').value = totalAkhir;
+        const subtotal = berat * (hargaLayananData[layanan] || 0);
+        let totalAkhir = subtotal - diskon;
+        if (totalAkhir < 0) totalAkhir = 0; // Cegah angka minus
+        totalTerhitung = totalAkhir;
+        document.getElementById('totalHarga').value = totalAkhir;
       } else {
         document.getElementById('totalHarga').value = '';
       }
@@ -2563,7 +2706,7 @@
 
     async function refreshWhatsAppStatus() {
       try {
-        const res = await fetch('/api/health', { headers: { 'Authorization': `Bearer ${token}` }});
+        const res = await fetch('/api/health', { headers: { 'Authorization': `Bearer ${token}` } });
         const json = await res.json();
         const card = document.getElementById('waAuthCard');
         const badge = document.getElementById('waStatusBadge');
@@ -2647,11 +2790,11 @@
       // INI YANG PALING PENTING: Tangkap diskon & catatan
       const diskon = parseFloat(document.getElementById('diskon').value) || 0;
       const catatan = document.getElementById('catatan').value.trim();
-      
+
       // ==========================================
       // 🛡️ FRONTEND VALIDATION
       // ==========================================
-      
+
       // Validasi Kosong
       if (!nama || !noWa || isNaN(berat) || isNaN(totalHarga)) {
         return Swal.fire('Data Tidak Lengkap', 'Nama, No WA, dan Berat Cucian wajib diisi!', 'warning');
@@ -2761,7 +2904,7 @@
     document.querySelectorAll('.nav-item[data-target]').forEach(item => {
       item.addEventListener('click', (e) => { e.preventDefault(); navigateTo(item.dataset.target); });
     });
-    
+
     let currentDetailOrderId = null;
 
     function normalizeWhatsAppNumber(number) {
@@ -2913,7 +3056,7 @@
         const res = await fetch('/api/dashboard', { headers: { 'Authorization': `Bearer ${token}` } });
         const json = await res.json();
         console.log('Dashboard response:', json);
-        
+
         if (json.success) {
           document.getElementById('dashTotalPesanan').textContent = json.data.totalPesanan;
           document.getElementById('dashTotalPendapatan').textContent = 'Rp ' + json.data.totalPendapatan.toLocaleString('id-ID');
@@ -3021,10 +3164,10 @@
       try {
         const res = await fetch('/api/riwayat', { headers: { 'Authorization': `Bearer ${token}` } });
         const json = await res.json();
-        
+
         console.log('Response status:', res.status);
         console.log('Response data:', json);
-        
+
         if (!res.ok || !json.success) {
           const errorMsg = json.message || `HTTP ${res.status}: ${res.statusText}`;
           throw new Error(errorMsg);
@@ -3241,7 +3384,7 @@
               closeQRScanner();
               prosesHasilQR(decodedText);
             },
-            () => {}
+            () => { }
           );
           modalScannerAktif = true;
         } catch (fallbackError) {
@@ -3335,64 +3478,64 @@
 
         // 2. Beri jeda 100ms agar halaman riwayat selesai dimuat oleh browser
         setTimeout(() => {
-            const searchBox = document.getElementById('inputCariRiwayat');
-            const statusFilter = document.getElementById('filterStatusRiwayat');
-            
-            // Isi kotak pencarian dengan ID hasil scan
-            if(searchBox) searchBox.value = cleanId;
-            if(statusFilter) statusFilter.value = 'all';
+          const searchBox = document.getElementById('inputCariRiwayat');
+          const statusFilter = document.getElementById('filterStatusRiwayat');
 
-            // Panggil fungsi render ulang tabel riwayat
-            if (typeof loadRiwayat === "function") {
-                loadRiwayat();
-            }
+          // Isi kotak pencarian dengan ID hasil scan
+          if (searchBox) searchBox.value = cleanId;
+          if (statusFilter) statusFilter.value = 'all';
 
-            // 3. Tampilkan notifikasi "Toast" kecil di pojok (tidak mengganggu layar tengah)
-            Swal.fire({
-              icon: 'success',
-              title: 'Pesanan Ditemukan!',
-              text: `Menampilkan ID: ${cleanId}`,
-              toast: true,
-              position: 'top-end',
-              timer: 3000,
-              showConfirmButton: false
-            });
-            
-            // If we opened scanner specifically for pickup, and the scanned ID matches the focused order, call pickup API
-            if (window.focusedPickupId && window.focusedPickupId === cleanId) {
-              // call pickup endpoint
-              (async () => {
-                  try {
-                    let r = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
-                    let j = await r.json();
-                    if (r.ok && j && j.success) {
-                      Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j.message, timer: 2000, showConfirmButton: false });
+          // Panggil fungsi render ulang tabel riwayat
+          if (typeof loadRiwayat === "function") {
+            loadRiwayat();
+          }
+
+          // 3. Tampilkan notifikasi "Toast" kecil di pojok (tidak mengganggu layar tengah)
+          Swal.fire({
+            icon: 'success',
+            title: 'Pesanan Ditemukan!',
+            text: `Menampilkan ID: ${cleanId}`,
+            toast: true,
+            position: 'top-end',
+            timer: 3000,
+            showConfirmButton: false
+          });
+
+          // If we opened scanner specifically for pickup, and the scanned ID matches the focused order, call pickup API
+          if (window.focusedPickupId && window.focusedPickupId === cleanId) {
+            // call pickup endpoint
+            (async () => {
+              try {
+                let r = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+                let j = await r.json();
+                if (r.ok && j && j.success) {
+                  Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j.message, timer: 2000, showConfirmButton: false });
+                  loadRiwayat();
+                  loadDashboard();
+                } else {
+                  // If pickup failed because status not ready, try marking as 'Siap Diambil' then pickup
+                  if (j && j.message && /bukan 'Siap Diambil'/i.test(j.message)) {
+                    // call update-status then retry
+                    await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }, body: JSON.stringify({ idPesanan: cleanId, nama: order.nama || '', noWa: order.noWa || '' }) });
+                    // retry pickup
+                    let r2 = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
+                    let j2 = await r2.json();
+                    if (r2.ok && j2 && j2.success) {
+                      Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j2.message, timer: 2000, showConfirmButton: false });
                       loadRiwayat();
                       loadDashboard();
                     } else {
-                      // If pickup failed because status not ready, try marking as 'Siap Diambil' then pickup
-                      if (j && j.message && /bukan 'Siap Diambil'/i.test(j.message)) {
-                        // call update-status then retry
-                        await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }, body: JSON.stringify({ idPesanan: cleanId, nama: order.nama || '', noWa: order.noWa || '' }) });
-                        // retry pickup
-                        let r2 = await fetch(`/api/pickup/${encodeURIComponent(cleanId)}`, { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
-                        let j2 = await r2.json();
-                        if (r2.ok && j2 && j2.success) {
-                          Swal.fire({ icon: 'success', title: 'Pickup Dikonfirmasi', text: j2.message, timer: 2000, showConfirmButton: false });
-                          loadRiwayat();
-                          loadDashboard();
-                        } else {
-                          Swal.fire('Gagal', j2 && j2.message ? j2.message : 'Gagal memproses pickup setelah update.', 'error');
-                        }
-                      } else {
-                        Swal.fire('Gagal', j && j.message || 'Gagal memproses pickup', 'error');
-                      }
+                      Swal.fire('Gagal', j2 && j2.message ? j2.message : 'Gagal memproses pickup setelah update.', 'error');
                     }
-                  } catch (err) {
-                    Swal.fire('Error', 'Gagal memproses pickup: ' + err.message, 'error');
+                  } else {
+                    Swal.fire('Gagal', j && j.message || 'Gagal memproses pickup', 'error');
                   }
-                })();
-            }
+                }
+              } catch (err) {
+                Swal.fire('Error', 'Gagal memproses pickup: ' + err.message, 'error');
+              }
+            })();
+          }
         }, 100);
 
       } catch (err) {
@@ -3548,4 +3691,5 @@
     </div>
   </div>
 </body>
+
 </html>
