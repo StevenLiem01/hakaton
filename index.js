@@ -186,13 +186,20 @@ async function initializeWhatsAppClient(retry = 0) {
         console.warn(`⚠️ Using fallback WhatsApp session directory: ${sessionDir}`);
     }
 
+    const puppeteerOptions = {
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+    };
+
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+        puppeteerOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+    } else if (process.platform === 'win32') {
+        puppeteerOptions.executablePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+    }
+
     client = new Client({
         authStrategy: new LocalAuth({ clientId: 'laundry-app', dataPath: sessionDir }),
-        puppeteer: {
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-            headless: true,
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-        }
+        puppeteer: puppeteerOptions
     });
 
     waReady = false;
