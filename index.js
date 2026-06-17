@@ -66,9 +66,11 @@ async function generateStrukMedia(data, idPesanan) {
     const receiptDir = path.join(__dirname, 'receipts');
     fs.mkdirSync(receiptDir, { recursive: true });
 
-    const browser = await puppeteer.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    headless: true, 
-    args: ['--no-sandbox', '--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch({
+        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'networkidle0' });
     await page.setViewport({ width: 400, height: 800, deviceScaleFactor: 2 });
@@ -300,12 +302,12 @@ async function sendWhatsAppMessage(number, message, options = {}) {
 
     if (!chatId.includes('@')) {
         // 1. Hilangkan semua karakter non-angka (+, -, spasi)
-        let formattedNumber = chatId.replace(/\D/g, ''); 
+        let formattedNumber = chatId.replace(/\D/g, '');
 
         // 2. JIKA diawali '0', ubah jadi '62' (Contoh: 0812 -> 62812)
         if (formattedNumber.startsWith('0')) {
             formattedNumber = '62' + formattedNumber.substring(1);
-        } 
+        }
         // 3. JIKA langsung diawali '8' (seperti yang kamu lakukan tadi), tambahkan '62' di depannya
         else if (formattedNumber.startsWith('8')) {
             formattedNumber = '62' + formattedNumber;
@@ -404,8 +406,8 @@ app.get('/', (req, res) => {
 app.get('/api/health', async (req, res) => {
     try {
         await db.collection('pesanan_laundry').limit(1).get();
-        const payload = { 
-            success: true, 
+        const payload = {
+            success: true,
             message: 'Server, Firebase, dan WhatsApp OK',
             firebase: 'Connected',
             whatsapp: {
@@ -419,8 +421,8 @@ app.get('/api/health', async (req, res) => {
         res.json(payload);
     } catch (error) {
         console.error('❌ [API] Health check failed:', error.message);
-        res.status(500).json({ 
-            success: false, 
+        res.status(500).json({
+            success: false,
             message: 'Firebase connection error: ' + error.message,
             firebase: 'Disconnected',
             whatsapp: {
@@ -502,7 +504,7 @@ app.post('/buat-pesanan', async (req, res) => {
     // ==========================================
     // 🛡️ BACKEND VALIDATION (Keamanan Server)
     // ==========================================
-    
+
     // Validasi Nama
     const regexAlfabet = /^[A-Za-z.'\-\s]+$/;
     if (!nama || nama.trim().length < 3 || nama.length > 50 || !regexAlfabet.test(nama)) {
@@ -575,7 +577,7 @@ app.post('/buat-pesanan', async (req, res) => {
             tanggal: waktuSekarang,
             reminderTerkirim: false
         });
-        
+
         const pesananBaru = { id: orderId };
 
         // 2. Format nomor WA
@@ -588,7 +590,7 @@ app.post('/buat-pesanan', async (req, res) => {
         // 3. Generate QR Code + Struk gambar & PDF
         const strukturData = { nama, noWa: strWa, berat, layanan, totalHarga: Number(totalHarga), diskon: diskonAktif, catatan: catatanAktif };
         const { pngBuffer } = await generateStrukMedia(strukturData, pesananBaru.id);
-        
+
         // 4. Generate QR code (contains only the order ID) and send Struk Digital via WhatsApp
         const pesanWA = `Halo *${nama}*! 🧺✨\n\nPesanan laundry kamu sudah kami terima dan sedang *DIPROSES*. Berikut detailnya:\n\n🔖 *No. Struk:* ${pesananBaru.id}\n👕 *Layanan:* ${layanan}\n⚖️ *Berat:* ${berat} kg${teksDiskon}${teksCatatan}\n💰 *Total Tagihan:* Rp ${Number(totalHarga).toLocaleString('id-ID')}\n\nTunjukkan QR code ini saat mengambil cucian agar kami dapat memproses lebih cepat. Terima kasih! 🙏`;
 
@@ -596,7 +598,7 @@ app.post('/buat-pesanan', async (req, res) => {
             // 5. Kirim gambar Struk via WhatsApp (Hanya SATU pengiriman pesan)
             const pngBase64 = pngBuffer.toString('base64');
             const mediaStruk = new MessageMedia('image/png', pngBase64, `struk-${pesananBaru.id}.png`);
-            
+
             console.log(`📤 Mengirim WA Struk Digital ke ${formattedNumber}`);
             await sendWhatsAppMessage(formattedNumber, mediaStruk, { caption: pesanWA });
             console.log('✅ WA Struk Digital berhasil dikirim.');
@@ -609,7 +611,7 @@ app.post('/buat-pesanan', async (req, res) => {
             const pesanLogSend = `[${waktuSend}] ERROR WA BUAT PESANAN:\n${sendError.stack}\n-----------------------------------\n`;
             fs.appendFileSync('logs.txt', pesanLogSend);
             console.error('❌ Gagal kirim WA:', sendError.message);
-            
+
             // Lapor sukses ke database meskipun WA gagal terkirim
             return res.json({ success: true, message: 'Pesanan dibuat, tapi WA gagal dikirim: ' + sendError.message, idPesanan: pesananBaru.id });
         }
@@ -630,7 +632,7 @@ app.post('/buat-pesanan', async (req, res) => {
 app.get('/api/riwayat', async (req, res) => {
     try {
         const snapshot = await db.collection('pesanan_laundry').orderBy('tanggal', 'desc').get();
-        
+
         const riwayat = snapshot.docs.map(doc => {
             const data = doc.data();
 
@@ -932,6 +934,162 @@ app.get('/api/statistik', async (req, res) => {
 });
 
 // ==========================================
+// SHIFT MANAGEMENT API
+// ==========================================
+
+// Helper: serialize Firestore Timestamp → ISO string
+function serializeTimestamp(ts) {
+    if (!ts) return null;
+    if (ts._seconds) return new Date(ts._seconds * 1000).toISOString();
+    if (ts instanceof Date) return ts.toISOString();
+    return ts;
+}
+
+// Helper: extract zero-padded date/time parts from a Date
+function getDateParts(date) {
+    const d = String(date.getDate()).padStart(2, '0');
+    const mo = String(date.getMonth() + 1).padStart(2, '0');
+    const y = date.getFullYear();
+    const h = String(date.getHours()).padStart(2, '0');
+    const min = String(date.getMinutes()).padStart(2, '0');
+    return { d, mo, y, h, min };
+}
+
+// GET /api/shift/status
+app.get('/api/shift/status', async (req, res) => {
+    try {
+        const snapshot = await db.collection('shift_records')
+            .where('status', '==', 'OPEN')
+            .limit(1)
+            .get();
+        if (snapshot.empty) {
+            return res.json({ success: true, hasActiveShift: false, shift: null });
+        }
+        const doc = snapshot.docs[0];
+        const data = doc.data();
+        const shift = { id: doc.id, ...data, startTime: serializeTimestamp(data.startTime) };
+        return res.json({ success: true, hasActiveShift: true, shift });
+    } catch (error) {
+        console.error('❌ [SHIFT] Error cek status shift:', error.message);
+        res.status(500).json({ success: false, message: 'Gagal mengambil status shift: ' + error.message });
+    }
+});
+
+// POST /api/shift/open
+app.post('/api/shift/open', async (req, res) => {
+    try {
+        const cashierName = String(req.body.cashierName || '').trim();
+        const startingCash = req.body.startingCash;
+        if (!cashierName) {
+            return res.status(400).json({ success: false, message: 'Nama kasir tidak boleh kosong.' });
+        }
+        const startingCashNum = Number(startingCash);
+        if (isNaN(startingCashNum) || startingCashNum < 0) {
+            return res.status(400).json({ success: false, message: 'Modal awal kas tidak valid.' });
+        }
+        // Cek shift aktif secara global
+        const existingSnap = await db.collection('shift_records')
+            .where('status', '==', 'OPEN').limit(1).get();
+        if (!existingSnap.empty) {
+            const existing = existingSnap.docs[0].data();
+            return res.status(409).json({
+                success: false,
+                message: `Shift milik ${existing.cashierName} masih aktif. Tutup shift tersebut terlebih dahulu.`
+            });
+        }
+        // ID sementara: NamaKasir_DDMMYYYY_HHMM
+        const now = new Date();
+        const { d, mo, y, h, min } = getDateParts(now);
+        const cleanName = cashierName.replace(/[^a-zA-Z0-9]/g, '_');
+        const openShiftDocId = `${cleanName}_${d}${mo}${y}_${h}${min}`;
+        await db.collection('shift_records').doc(openShiftDocId).set({
+            cashierName, startingCash: startingCashNum,
+            startTime: now, endTime: null, status: 'OPEN',
+            totalSalesDuringShift: 0, expectedEndingCash: 0, actualEndingCash: 0, discrepancy: 0
+        });
+        console.log(`✅ [SHIFT] Shift dibuka oleh ${cashierName} (ID: ${openShiftDocId}), modal awal: Rp ${startingCashNum.toLocaleString('id-ID')}`);
+        return res.json({
+            success: true,
+            message: `Shift berhasil dibuka! Modal awal: Rp ${startingCashNum.toLocaleString('id-ID')}`,
+            shift: { id: openShiftDocId, cashierName, startTime: now.toISOString(), status: 'OPEN', startingCash: startingCashNum }
+        });
+    } catch (error) {
+        console.error('❌ [SHIFT] Error buka shift:', error.message);
+        res.status(500).json({ success: false, message: 'Gagal membuka shift: ' + error.message });
+    }
+});
+
+// POST /api/shift/close
+app.post('/api/shift/close', async (req, res) => {
+    try {
+        const actualEndingCashNum = Number(req.body.actualEndingCash);
+        if (isNaN(actualEndingCashNum) || actualEndingCashNum < 0) {
+            return res.status(400).json({ success: false, message: 'Jumlah kas fisik tidak valid.' });
+        }
+        // Cari shift OPEN aktif secara global
+        const shiftSnap = await db.collection('shift_records')
+            .where('status', '==', 'OPEN').limit(1).get();
+        if (shiftSnap.empty) {
+            return res.status(404).json({ success: false, message: 'Tidak ada shift aktif yang ditemukan.' });
+        }
+        const activeShiftDoc = shiftSnap.docs[0];
+        const activeShiftData = activeShiftDoc.data();
+        // Rekonstruksi startTime
+        let startTimeDate;
+        if (activeShiftData.startTime?._seconds) {
+            startTimeDate = new Date(activeShiftData.startTime._seconds * 1000);
+        } else if (activeShiftData.startTime instanceof Date) {
+            startTimeDate = activeShiftData.startTime;
+        } else {
+            startTimeDate = new Date(activeShiftData.startTime);
+        }
+        // Hitung total penjualan selama shift
+        const endTime = new Date();
+        const ordersSnapshot = await db.collection('pesanan_laundry')
+            .where('tanggal', '>=', startTimeDate)
+            .where('tanggal', '<=', endTime)
+            .get();
+        let totalSalesDuringShift = 0;
+        ordersSnapshot.forEach(doc => { totalSalesDuringShift += Number(doc.data().totalHarga) || 0; });
+        const startingCash = Number(activeShiftData.startingCash) || 0;
+        const expectedEndingCash = startingCash + totalSalesDuringShift;
+        const discrepancy = actualEndingCashNum - expectedEndingCash;
+        // ID final: NamaKasir_DDMMYYYY_HHMMBuka_HHMMTutup
+        const { h: closeH, min: closeMin } = getDateParts(endTime);
+        const finalShiftDocId = `${activeShiftDoc.id}_${closeH}${closeMin}`;
+        // Tulis dokumen final baru
+        await db.collection('shift_records').doc(finalShiftDocId).set({
+            ...activeShiftData,
+            startTime: startTimeDate,
+            endTime,
+            status: 'CLOSED',
+            actualEndingCash: actualEndingCashNum,
+            totalSalesDuringShift,
+            expectedEndingCash,
+            discrepancy
+        });
+        // Hapus dokumen sementara
+        await db.collection('shift_records').doc(activeShiftDoc.id).delete();
+        console.log(`✅ [SHIFT] Shift ditutup | ${activeShiftDoc.id} → ${finalShiftDocId} | Selisih: Rp ${discrepancy.toLocaleString('id-ID')}`);
+        return res.json({
+            success: true,
+            message: 'Shift berhasil ditutup.',
+            summary: {
+                shiftId: finalShiftDocId,
+                cashierName: activeShiftData.cashierName,
+                startTime: startTimeDate.toISOString(),
+                endTime: endTime.toISOString(),
+                startingCash, totalSalesDuringShift, expectedEndingCash,
+                actualEndingCash: actualEndingCashNum, discrepancy
+            }
+        });
+    } catch (error) {
+        console.error('❌ [SHIFT] Error tutup shift:', error.message);
+        res.status(500).json({ success: false, message: 'Gagal menutup shift: ' + error.message });
+    }
+});
+
+// ==========================================
 // 5. API Pengaturan (GET & POST)
 // ==========================================
 
@@ -1020,8 +1178,8 @@ const PORT = 3000;
 
 // Verifikasi Firebase koneksi
 db.collection('pesanan_laundry').limit(1).get()
-  .then(() => console.log('✅ Firebase Database terhubung dan siap'))
-  .catch(err => console.error('❌ Firebase Database error:', err.message));
+    .then(() => console.log('✅ Firebase Database terhubung dan siap'))
+    .catch(err => console.error('❌ Firebase Database error:', err.message));
 
 const server = app.listen(PORT, () => {
     console.log(`🚀 Server & Halaman Kasir berjalan di http://localhost:${PORT}`);
@@ -1056,16 +1214,20 @@ app.get('/api/pesanan/:id', async (req, res) => {
 // ==========================================
 // 8. Penutupan Server yang Aman (Graceful Shutdown)
 // ==========================================
-process.on('SIGINT', async () => {
-    console.log('\n🛑 Mematikan server dengan aman...');
-    if (client) {
-        try {
+const gracefulShutdown = async (signal) => {
+    console.log(`\n🛑 Menerima sinyal ${signal}. Mematikan server dengan aman...`);
+    try {
+        if (client) {
             console.log('Menutup sesi WhatsApp...');
             await client.destroy();
             console.log('✅ Sesi WhatsApp berhasil ditutup.');
-        } catch (err) {
-            console.log('⚠️ Gagal menutup WhatsApp:', err.message);
         }
+    } catch (error) {
+        console.error('⚠️ Gagal menutup sesi WhatsApp:', error.message);
+    } finally {
+        process.exit(0);
     }
-    process.exit(0);
-});
+};
+
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
